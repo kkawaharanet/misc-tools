@@ -6,21 +6,21 @@ export default function App() {
     <>
       <ul>
         <li>
-          <Link to="/sorter">Sorter</Link>
+          <Link to="./sorter">Sorter</Link>
         </li>
         <li>
-          <Link to="/json-sorter">JSON Sorter</Link>
+          <Link to="./json-sorter">JSON Sorter</Link>
         </li>
         <li>
-          <Link to="/html-special-character-converter">
+          <Link to="./html-special-character-converter">
             HTML Special Character Converter
           </Link>
         </li>
         <li>
-          <Link to="/csv-to-markdown-table">CSV to Markdown Table</Link>
+          <Link to="./csv-to-markdown-table">CSV to Markdown Table</Link>
         </li>
         <li>
-          <Link to="/password-generator">Password Generator</Link>
+          <Link to="./password-generator">Password Generator</Link>
         </li>
       </ul>
       <Outlet />

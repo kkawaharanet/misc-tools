@@ -9,34 +9,37 @@ import { JsonSorterPage } from "./pages/JsonSorterPage.tsx";
 import { PasswordGeneratorPage } from "./pages/PasswordGenerator.tsx";
 import { SorterPage } from "./pages/SorterPage.tsx";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "sorter",
-        element: <SorterPage />,
-      },
-      {
-        path: "json-sorter",
-        element: <JsonSorterPage />,
-      },
-      {
-        path: "html-special-character-converter",
-        element: <HtmlSpecialCharacterConverterPage />,
-      },
-      {
-        path: "csv-to-markdown-table",
-        element: <CsvToMarkdownTablePage />,
-      },
-      {
-        path: "password-generator",
-        element: <PasswordGeneratorPage />,
-      },
-    ],
-  },
-]);
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+      children: [
+        {
+          path: "sorter",
+          element: <SorterPage />,
+        },
+        {
+          path: "json-sorter",
+          element: <JsonSorterPage />,
+        },
+        {
+          path: "html-special-character-converter",
+          element: <HtmlSpecialCharacterConverterPage />,
+        },
+        {
+          path: "csv-to-markdown-table",
+          element: <CsvToMarkdownTablePage />,
+        },
+        {
+          path: "password-generator",
+          element: <PasswordGeneratorPage />,
+        },
+      ],
+    },
+  ],
+  { basename: import.meta.env.BASE_URL }
+);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

@@ -89,7 +89,5 @@ export function transformHtmlNamedCharacterReferences(
       result = result.replaceAll(value, key);
     }
   });
-  console.log(ctor);
-  console.log(result);
   return result;
 }
