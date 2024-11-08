@@ -7,7 +7,7 @@ export default defineConfig(() => {
     build: {
       chunkSizeWarningLimit: 1000 * 1000,
     },
-    base: "/misc-tools/",
+    base: "/software/misc-tools/",
     plugins: [react()],
   };
 });
