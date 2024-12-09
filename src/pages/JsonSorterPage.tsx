@@ -1,15 +1,32 @@
 import { useState } from "react";
-import { getSortedJson } from "../functions";
+import { toSortedJson } from "../functions";
 
 export function JsonSorterPage() {
-  const [jsonInput, setJsonInput] = useState(
-    '{"b": "4", "a": "3", "0": "0", "A": "1", "B": "2", "あ": "5", "い": "6", "う": "7", "え": "8"}'
-  );
+  const [jsonInput, setJsonInput] = useState(`[
+  {"type": "number", "value": "0"},
+  { "type": "array", "value": [9, 8, 7, 6, 5, 4, 3, 2, 1] },
+  {
+    "type": "object",
+    "value": {
+      "b": "3",
+      "a": "2",
+      "A": "0",
+      "B": "1",
+      "え": "7",
+      "う": "6",
+      "い": "5",
+      "あ": "4"
+    }
+  }
+]`);
+
   const [spaceEnabled, setSpaceEnabled] = useState(true);
+  const [sortKey, setSortKey] = useState(true);
+  const [sortArray, setSortArray] = useState(true);
 
   const jsonOutput = (() => {
     try {
-      return getSortedJson(jsonInput, spaceEnabled);
+      return toSortedJson(jsonInput, sortKey, sortArray, spaceEnabled);
     } catch (error: any) {
       return error.toString();
     }
@@ -20,6 +37,10 @@ export function JsonSorterPage() {
       <div>
         <h1>JSON Sorter</h1>
         <p>このツールはJSONをソートする。</p>
+        <p>
+          仕様として、設定にかかわらず数値のキー(例:{" "}
+          <code>"0": "something"</code>)は並びが変わる。
+        </p>
       </div>
       <div className="grid-2 gap-8">
         <textarea
@@ -30,14 +51,14 @@ export function JsonSorterPage() {
             setJsonInput(event.target.value)
           }
           defaultValue={jsonInput}
-          rows={20}
+          rows={40}
         />
         <textarea
           value={jsonOutput}
           onFocus={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
             event.target.select()
           }
-          rows={20}
+          rows={40}
           readOnly
         />
       </div>
@@ -51,6 +72,28 @@ export function JsonSorterPage() {
           }
         />
         <label htmlFor="checkboxSpaceEnabled">スペースを有効にする</label>
+      </div>
+      <div>
+        <input
+          type="checkbox"
+          id="checkboxSortKey"
+          defaultChecked={sortKey}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setSortKey(event.target.checked)
+          }
+        />
+        <label htmlFor="checkboxSortKey">キーをソートする</label>
+      </div>
+      <div>
+        <input
+          type="checkbox"
+          id="checkboxSortArray"
+          defaultChecked={sortArray}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setSortArray(event.target.checked)
+          }
+        />
+        <label htmlFor="checkboxSortArray">配列をソートする</label>
       </div>
     </div>
   );

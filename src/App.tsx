@@ -24,6 +24,7 @@ export default function App() {
         </li>
       </ul>
       <Outlet />
+      <div className="version">{import.meta.env.VERSION}</div>
     </>
   );
 }

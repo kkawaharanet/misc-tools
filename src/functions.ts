@@ -26,17 +26,42 @@ export function generatePassword(
   ).join("");
 }
 
-export function getSortedJson(json: string, spaceEnabled: boolean): string {
+export function toSortedObject(
+  object: any,
+  sortKey?: boolean,
+  sortArray?: boolean
+): any {
+  const isArray = Array.isArray(object);
+  const isObject = !isArray && object && typeof object === "object";
+  if (isArray) {
+    // 配列であれば、中身を再帰的にソートする。
+    // 配列のソートが有効の場合、配列自体もソートする
+    const arrayItems = object.map((o) => toSortedObject(o, sortKey, sortArray));
+    return sortArray ? arrayItems.toSorted() : arrayItems;
+  }
+  if (isObject) {
+    const sorted: any = {};
+    const keys = sortKey ? Object.keys(object).toSorted() : Object.keys(object);
+    keys.forEach((key) => {
+      sorted[key] = toSortedObject(object[key], sortKey, sortArray);
+    });
+    return sorted;
+  }
+  return object;
+}
+
+export function toSortedJson(
+  json: string,
+  sortKey: boolean,
+  sortArray: boolean,
+  spaceEnabled: boolean
+): string {
   const object = JSON.parse(json);
-  const keys = Object.keys(object);
-  const after: any = {};
-  keys.sort().forEach((key) => {
-    after[key] = object[key];
-  });
+  const sorted = toSortedObject(object, sortKey, sortArray);
   if (spaceEnabled) {
-    return JSON.stringify(after, undefined, 2);
+    return JSON.stringify(sorted, undefined, 2);
   } else {
-    return JSON.stringify(after);
+    return JSON.stringify(sorted);
   }
 }
 
@@ -90,4 +115,25 @@ export function transformHtmlNamedCharacterReferences(
     }
   });
   return result;
+}
+
+export function toSortedIpAddressV4(text: string): string {
+  function ipToNumber(ip: string): number {
+    const [address, mask] = ip.split("/");
+    const values = address.split(".").map((value) => parseInt(value));
+    const ret =
+      (((values.at(3) ?? 0) << 24) >>> 0) |
+      (((values.at(2) ?? 0) << 16) >>> 0) |
+      (((values.at(1) ?? 0) << 8) >>> 0) |
+      ((values.at(0) ?? 0) + parseInt(mask ?? "0"));
+    console.log(ip, values, ret);
+    return ret;
+  }
+  return text
+    .split("\n")
+    .filter((t) => !!t)
+    .toSorted((a, b) => {
+      return ipToNumber(a) > ipToNumber(b) ? 1 : -1;
+    })
+    .join("\n");
 }
