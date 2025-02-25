@@ -22,6 +22,9 @@ export default function App() {
         <li>
           <Link to="./password-generator">Password Generator</Link>
         </li>
+        <li>
+          <Link to="./remove-html">Remove HTML</Link>
+        </li>
       </ul>
       <Outlet />
       <div className="version">{import.meta.env.VERSION}</div>

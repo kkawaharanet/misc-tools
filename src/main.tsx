@@ -7,6 +7,7 @@ import { CsvToMarkdownTablePage } from "./pages/CsvToMarkdownTablePage.tsx";
 import { HtmlSpecialCharacterConverterPage } from "./pages/HtmlSpecialCharacterConverterPage.tsx";
 import { JsonSorterPage } from "./pages/JsonSorterPage.tsx";
 import { PasswordGeneratorPage } from "./pages/PasswordGenerator.tsx";
+import { RemoveHtmlPage } from "./pages/RemoveHtmlPage.tsx";
 import { SorterPage } from "./pages/SorterPage.tsx";
 
 const router = createBrowserRouter(
@@ -34,6 +35,10 @@ const router = createBrowserRouter(
         {
           path: "password-generator",
           element: <PasswordGeneratorPage />,
+        },
+        {
+          path: "remove-html",
+          element: <RemoveHtmlPage />,
         },
       ],
     },
