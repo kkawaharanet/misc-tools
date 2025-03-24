@@ -4,7 +4,7 @@ import {
   transformHtmlNamedCharacterReferences,
 } from "../functions";
 
-export function HtmlSpecialCharacterConverterPage() {
+export function HtmlSpecialCharacterConverter() {
   const [htmlInput, setHtmlInput] = useState(`<p>Hello, World!</p>`);
   const [nbspEnabled, setNbspEnabled] = useState(false);
   const [inverted, setInverted] = useState(false);

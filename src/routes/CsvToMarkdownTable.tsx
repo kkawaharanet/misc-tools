@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { csvToMarkdownTable } from "../functions";
 
-export function CsvToMarkdownTablePage() {
+export function CsvToMarkdownTable() {
   const [csvInput, setCsvInput] = useState(`名前\t説明\nAAA\tBBB\nCCC\tDDD`);
   const [tsvEnabled, setTsvEnabled] = useState(true);
 

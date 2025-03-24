@@ -1,53 +1,41 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router";
 import App from "./App.tsx";
 import "./index.css";
-import { CsvToMarkdownTablePage } from "./pages/CsvToMarkdownTablePage.tsx";
-import { HtmlSpecialCharacterConverterPage } from "./pages/HtmlSpecialCharacterConverterPage.tsx";
-import { JsonSorterPage } from "./pages/JsonSorterPage.tsx";
-import { PasswordGeneratorPage } from "./pages/PasswordGenerator.tsx";
-import { RemoveHtmlPage } from "./pages/RemoveHtmlPage.tsx";
-import { SorterPage } from "./pages/SorterPage.tsx";
-
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <App />,
-      children: [
-        {
-          path: "sorter",
-          element: <SorterPage />,
-        },
-        {
-          path: "json-sorter",
-          element: <JsonSorterPage />,
-        },
-        {
-          path: "html-special-character-converter",
-          element: <HtmlSpecialCharacterConverterPage />,
-        },
-        {
-          path: "csv-to-markdown-table",
-          element: <CsvToMarkdownTablePage />,
-        },
-        {
-          path: "password-generator",
-          element: <PasswordGeneratorPage />,
-        },
-        {
-          path: "remove-html",
-          element: <RemoveHtmlPage />,
-        },
-      ],
-    },
-  ],
-  { basename: import.meta.env.BASE_URL }
-);
+import { Blank } from "./routes/Blank.tsx";
+import { CsvToMarkdownTable } from "./routes/CsvToMarkdownTable.tsx";
+import { HtmlSpecialCharacterConverter } from "./routes/HtmlSpecialCharacterConverter.tsx";
+import { JsonSorter } from "./routes/JsonSorter.tsx";
+import { PasswordGenerator } from "./routes/PasswordGenerator.tsx";
+import { RemoveHtml } from "./routes/RemoveHtml.tsx";
+import { RemoveHtmlAttributes } from "./routes/RemoveHtmlAttributes.tsx";
+import { Sorter } from "./routes/Sorter.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <Routes>
+        <Route element={<App />}>
+          <Route path="/" element={<Blank />} />
+          <Route path="sorter" element={<Sorter />} />
+          <Route path="json-sorter" element={<JsonSorter />} />
+          <Route
+            path="html-special-character-converter"
+            element={<HtmlSpecialCharacterConverter />}
+          />
+          <Route
+            path="csv-to-markdown-table"
+            element={<CsvToMarkdownTable />}
+          />
+          <Route path="password-generator" element={<PasswordGenerator />} />
+          <Route path="remove-html" element={<RemoveHtml />} />
+          <Route
+            path="remove-html-attributes"
+            element={<RemoveHtmlAttributes />}
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </StrictMode>
 );

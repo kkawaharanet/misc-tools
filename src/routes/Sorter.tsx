@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function SorterPage() {
+export function Sorter() {
   const [textInput, setTextInput] = useState("bbb\nccc\naaa\n");
   const [desc, setDesc] = useState(false);
 

@@ -1,0 +1,19 @@
+:root {
+  --width-sidebar: 200px;
+  --screen-width-tablet: 768px;
+  --screen-width-phone: 480px;
+  --color-border: #7f7f7f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  font-size: 100%;
+}
+
+ul {
+  list-style-position: inside;
+}

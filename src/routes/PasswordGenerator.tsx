@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Xorshift } from "../classes/xorshift";
 import { generatePassword } from "../functions";
 
-export function PasswordGeneratorPage() {
+export function PasswordGenerator() {
   const [useZeroNine, setUseZeroNine] = useState(true);
   const [useLowerCase, setUseLowerCase] = useState(true);
   const [useUpperCase, setUseUpperCase] = useState(true);
