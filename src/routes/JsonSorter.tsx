@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toSortedJson } from "../functions";
+import { Pane } from "../pane/Pane";
 
 export function JsonSorter() {
   const [jsonInput, setJsonInput] = useState(`[
@@ -33,68 +34,57 @@ export function JsonSorter() {
   })();
 
   return (
-    <div className="flex-column gap-8">
-      <div>
-        <h1>JSON Sorter</h1>
-        <p>このツールはJSONをソートする。</p>
-        <p>
-          仕様として、設定にかかわらず数値のキー(例:{" "}
-          <code>"0": "something"</code>)は並びが変わる。
-        </p>
-      </div>
-      <div className="grid-2 gap-8">
-        <textarea
-          onFocus={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
-            event.target.select()
-          }
-          onInput={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
-            setJsonInput(event.target.value)
-          }
-          defaultValue={jsonInput}
-          rows={40}
-        />
-        <textarea
-          value={jsonOutput}
-          onFocus={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
-            event.target.select()
-          }
-          rows={40}
-          readOnly
-        />
-      </div>
-      <div>
-        <input
-          type="checkbox"
-          id="checkboxSpaceEnabled"
-          defaultChecked={spaceEnabled}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-            setSpaceEnabled(event.target.checked)
-          }
-        />
-        <label htmlFor="checkboxSpaceEnabled">スペースを有効にする</label>
-      </div>
-      <div>
-        <input
-          type="checkbox"
-          id="checkboxSortKey"
-          defaultChecked={sortKey}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-            setSortKey(event.target.checked)
-          }
-        />
-        <label htmlFor="checkboxSortKey">キーをソートする</label>
-      </div>
-      <div>
-        <input
-          type="checkbox"
-          id="checkboxSortArray"
-          defaultChecked={sortArray}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-            setSortArray(event.target.checked)
-          }
-        />
-        <label htmlFor="checkboxSortArray">配列をソートする</label>
-      </div>
-    </div>
+    <Pane
+      header={
+        <>
+          <h1>JSON Sorter</h1>
+          <p>このツールはJSONをソートする。</p>
+          <p>
+            仕様として、設定にかかわらず数値のキー(例:{" "}
+            <code>"0": "something"</code>)は並びが変わる。
+          </p>
+        </>
+      }
+      input={jsonInput}
+      output={jsonOutput}
+      onChange={(input) => setJsonInput(input)}
+      params={
+        <>
+          <div>
+            <input
+              type="checkbox"
+              id="checkboxSpaceEnabled"
+              defaultChecked={spaceEnabled}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setSpaceEnabled(event.target.checked)
+              }
+            />
+            <label htmlFor="checkboxSpaceEnabled">スペースを有効にする</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="checkboxSortKey"
+              defaultChecked={sortKey}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setSortKey(event.target.checked)
+              }
+            />
+            <label htmlFor="checkboxSortKey">キーをソートする</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="checkboxSortArray"
+              defaultChecked={sortArray}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setSortArray(event.target.checked)
+              }
+            />
+            <label htmlFor="checkboxSortArray">配列をソートする</label>
+          </div>
+        </>
+      }
+    />
   );
 }

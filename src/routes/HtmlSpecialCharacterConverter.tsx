@@ -3,6 +3,7 @@ import {
   CHARACTOR_TO_REFERENCE,
   transformHtmlNamedCharacterReferences,
 } from "../functions";
+import { Pane } from "../pane/Pane";
 
 export function HtmlSpecialCharacterConverter() {
   const [htmlInput, setHtmlInput] = useState(`<p>Hello, World!</p>`);
@@ -16,63 +17,52 @@ export function HtmlSpecialCharacterConverter() {
   );
 
   return (
-    <div className="flex-column gap-8">
-      <div>
-        <h1>HTML Special Character Converter</h1>
-        <p>このツールは以下の通り文字列をHTMLの文字実体参照に変換する。</p>
-        <ul>
-          {Object.entries(CHARACTOR_TO_REFERENCE).map(([key, value]) => (
-            <li key={key}>
-              "{key}" → "{value}"
-            </li>
-          ))}
-        </ul>
-        <p>これ以外の文字列はHTMLの文字実体参照に変換されない。</p>
-      </div>
-      <div className="grid-2 gap-8">
-        <textarea
-          onFocus={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
-            event.target.select()
-          }
-          onInput={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
-            setHtmlInput(event.target.value)
-          }
-          defaultValue={htmlInput}
-          rows={20}
-        />
-        <textarea
-          value={htmlOutput}
-          onFocus={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
-            event.target.select()
-          }
-          rows={20}
-          readOnly
-        />
-      </div>
-      <div>
-        <input
-          type="checkbox"
-          id="checkboxNbspEnabled"
-          defaultChecked={nbspEnabled}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-            setNbspEnabled(event.target.checked)
-          }
-        />
-        <label htmlFor="checkboxNbspEnabled">
-          スペースを<code>&amp;nbsp;</code>に変換する
-        </label>
-      </div>
-      <div>
-        <input
-          type="checkbox"
-          id="checkboxInverted"
-          defaultChecked={inverted}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-            setInverted(event.target.checked)
-          }
-        />
-        <label htmlFor="checkboxInverted">逆変換する</label>
-      </div>
-    </div>
+    <Pane
+      header={
+        <>
+          <h1>HTML Special Character Converter</h1>
+          <p>このツールは以下の通り文字列をHTMLの文字実体参照に変換する。</p>
+          <ul>
+            {Object.entries(CHARACTOR_TO_REFERENCE).map(([key, value]) => (
+              <li key={key}>
+                "{key}" → "{value}"
+              </li>
+            ))}
+          </ul>
+          <p>これ以外の文字列はHTMLの文字実体参照に変換されない。</p>
+        </>
+      }
+      input={htmlInput}
+      output={htmlOutput}
+      onChange={(input) => setHtmlInput(input)}
+      params={
+        <div>
+          <div>
+            <input
+              type="checkbox"
+              id="checkboxNbspEnabled"
+              defaultChecked={nbspEnabled}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setNbspEnabled(event.target.checked)
+              }
+            />
+            <label htmlFor="checkboxNbspEnabled">
+              スペースを<code>&amp;nbsp;</code>に変換する
+            </label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="checkboxInverted"
+              defaultChecked={inverted}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setInverted(event.target.checked)
+              }
+            />
+            <label htmlFor="checkboxInverted">逆変換する</label>
+          </div>
+        </div>
+      }
+    />
   );
 }

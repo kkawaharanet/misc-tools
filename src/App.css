@@ -5,17 +5,19 @@
   --color-background: #ffffff;
 }
 
-.sidebar {
-  position: fixed;
-  width: var(--width-sidebar);
-  height: 100%;
-  overflow: auto;
-  border-right: 1px solid var(--color-border);
-}
-
 .content {
   margin-left: var(--width-sidebar);
-  padding: 16px;
+  height: 100%;
+}
+
+@media screen and (width >= 769px) {
+  .sidebar {
+    position: fixed;
+    width: var(--width-sidebar);
+    height: 100%;
+    overflow: auto;
+    border-right: 1px solid var(--color-border);
+  }
 }
 
 /* 横幅700px以下の場合 */

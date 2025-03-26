@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Pane } from "../pane/Pane";
 
 export function Sorter() {
   const [textInput, setTextInput] = useState("bbb\nccc\naaa\n");
@@ -20,42 +21,29 @@ export function Sorter() {
   })();
 
   return (
-    <div className="flex-column gap-8">
-      <div>
-        <h1>Sorter</h1>
-        <p>このツールは文字列をソートする。</p>
-      </div>
-      <div className="grid-2 gap-8">
-        <textarea
-          onFocus={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
-            event.target.select()
-          }
-          onInput={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
-            setTextInput(event.target.value)
-          }
-          defaultValue={textInput}
-          rows={20}
-        />
-        <textarea
-          value={jsonOutput}
-          onFocus={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
-            event.target.select()
-          }
-          rows={20}
-          readOnly
-        />
-      </div>
-      <div>
-        <input
-          type="checkbox"
-          id="checkboxDesc"
-          defaultChecked={desc}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-            setDesc(event.target.checked)
-          }
-        />
-        <label htmlFor="checkboxDesc">降順にする</label>
-      </div>
-    </div>
+    <Pane
+      header={
+        <>
+          <h1>Sorter</h1>
+          <p>このツールは文字列をソートする。</p>
+        </>
+      }
+      input={textInput}
+      output={jsonOutput}
+      onChange={(input) => setTextInput(input)}
+      params={
+        <div>
+          <input
+            type="checkbox"
+            id="checkboxDesc"
+            defaultChecked={desc}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+              setDesc(event.target.checked)
+            }
+          />
+          <label htmlFor="checkboxDesc">降順にする</label>
+        </div>
+      }
+    />
   );
 }

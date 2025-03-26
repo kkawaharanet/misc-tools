@@ -5,13 +5,15 @@
   --color-border: #7f7f7f;
 }
 
+html,
+body,
+#root {
+  height: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;
-}
-
-textarea {
-  font-size: 100%;
 }
 
 ul {
