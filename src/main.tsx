@@ -5,12 +5,13 @@ import App from "./App.tsx";
 import "./main.css";
 import { Blank } from "./routes/Blank.tsx";
 import { CsvToMarkdownTable } from "./routes/CsvToMarkdownTable.tsx";
+import { HtmlAttributesRemover } from "./routes/HtmlAttributesRemover.tsx";
+import { HtmlRemover } from "./routes/HtmlRemover.tsx";
 import { HtmlSpecialCharacterConverter } from "./routes/HtmlSpecialCharacterConverter.tsx";
 import { JsonSorter } from "./routes/JsonSorter.tsx";
 import { PasswordGenerator } from "./routes/PasswordGenerator.tsx";
-import { RemoveHtml } from "./routes/RemoveHtml.tsx";
-import { RemoveHtmlAttributes } from "./routes/RemoveHtmlAttributes.tsx";
 import { Sorter } from "./routes/Sorter.tsx";
+import { Voiced } from "./routes/Voiced.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -29,11 +30,12 @@ createRoot(document.getElementById("root")!).render(
             element={<CsvToMarkdownTable />}
           />
           <Route path="password-generator" element={<PasswordGenerator />} />
-          <Route path="remove-html" element={<RemoveHtml />} />
+          <Route path="html-remover" element={<HtmlRemover />} />
           <Route
-            path="remove-html-attributes"
-            element={<RemoveHtmlAttributes />}
+            path="html-attributes-remover"
+            element={<HtmlAttributesRemover />}
           />
+          <Route path="voiced" element={<Voiced />} />
         </Route>
       </Routes>
     </BrowserRouter>

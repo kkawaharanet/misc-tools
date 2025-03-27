@@ -7,14 +7,15 @@ export default function App() {
   const navigationItems: NavigationItem[] = [
     { to: "./sorter", text: "Sorter" },
     { to: "./json-sorter", text: "JSON Sorter" },
+    { to: "./html-attributes-remover", text: "HTML Attributes Remover" },
+    { to: "./html-remover", text: "HTML Remover" },
     {
       to: "./html-special-character-converter",
       text: "HTML Special Character Converter",
     },
     { to: "./csv-to-markdown-table", text: "CSV to Markdown Table" },
     { to: "./password-generator", text: "Password Generator" },
-    { to: "./remove-html", text: "Remove HTML" },
-    { to: "./remove-html-attributes", text: "Remove HTML Attributes" },
+    { to: "./voiced", text: "Voiced" },
   ];
 
   return (

@@ -3,10 +3,10 @@ import { csvToMarkdownTable } from "../functions";
 import { Pane } from "../pane/Pane";
 
 export function CsvToMarkdownTable() {
-  const [csvInput, setCsvInput] = useState(`名前,説明\nAAA,BBB\nCCC,DDD`);
+  const [input, setInput] = useState(`名前,説明\nAAA,BBB\nCCC,DDD`);
   const [tsvEnabled, setTsvEnabled] = useState(true);
 
-  const output = csvToMarkdownTable(csvInput, tsvEnabled);
+  const output = csvToMarkdownTable(input, tsvEnabled);
 
   return (
     <Pane
@@ -16,9 +16,9 @@ export function CsvToMarkdownTable() {
           <p>このツールはCSVをMarkdownの表に変換する。</p>
         </>
       }
-      input={csvInput}
+      input={input}
       output={output}
-      onChange={(input) => setCsvInput(input)}
+      onChange={(input) => setInput(input)}
       params={
         <div>
           <input

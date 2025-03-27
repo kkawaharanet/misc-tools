@@ -2,7 +2,7 @@ import { useState } from "react";
 import { removeHtmlAttributes } from "../functions";
 import { Pane } from "../pane/Pane";
 
-export function RemoveHtmlAttributes() {
+export function HtmlAttributesRemover() {
   const [htmlInput, setHtmlInput] = useState(
     `<div class="content"><p class="example">Hello, World!</p></div>`
   );
@@ -13,7 +13,7 @@ export function RemoveHtmlAttributes() {
     <Pane
       header={
         <>
-          <h1>Remove HTML Attributes</h1>
+          <h1>HTML Attributes Remover</h1>
           <p>このツールはHTMLの属性を削除する。</p>
         </>
       }
