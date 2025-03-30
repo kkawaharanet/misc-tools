@@ -15,7 +15,7 @@ export default function App() {
     },
     { to: "./csv-to-markdown-table", text: "CSV to Markdown Table" },
     { to: "./password-generator", text: "Password Generator" },
-    { to: "./voiced", text: "Voiced" },
+    { to: "./dakuonizer", text: "Dakuonizer" },
   ];
 
   return (

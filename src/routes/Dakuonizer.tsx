@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Pane } from "../pane/Pane";
 
-export function Voiced() {
-  const [input, setInput] = useState("bbb\nccc\naaa\n");
+export function Dakuonizer() {
+  const [input, setInput] = useState("ああああああああああ\n");
   const [desc, setDesc] = useState(false);
 
-  // あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめも
   const output = (() => {
     return input
       .split("")
@@ -75,7 +74,7 @@ export function Voiced() {
     <Pane
       header={
         <>
-          <h1>Voiced</h1>
+          <h1>Dakuonizer</h1>
           <p>このツールはテキストを濁音だらけにする。</p>
         </>
       }

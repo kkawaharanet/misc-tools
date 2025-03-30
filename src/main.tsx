@@ -5,13 +5,13 @@ import App from "./App.tsx";
 import "./main.css";
 import { Blank } from "./routes/Blank.tsx";
 import { CsvToMarkdownTable } from "./routes/CsvToMarkdownTable.tsx";
+import { Dakuonizer } from "./routes/Dakuonizer.tsx";
 import { HtmlAttributesRemover } from "./routes/HtmlAttributesRemover.tsx";
 import { HtmlRemover } from "./routes/HtmlRemover.tsx";
 import { HtmlSpecialCharacterConverter } from "./routes/HtmlSpecialCharacterConverter.tsx";
 import { JsonSorter } from "./routes/JsonSorter.tsx";
 import { PasswordGenerator } from "./routes/PasswordGenerator.tsx";
 import { Sorter } from "./routes/Sorter.tsx";
-import { Voiced } from "./routes/Voiced.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -35,7 +35,7 @@ createRoot(document.getElementById("root")!).render(
             path="html-attributes-remover"
             element={<HtmlAttributesRemover />}
           />
-          <Route path="voiced" element={<Voiced />} />
+          <Route path="dakuonizer" element={<Dakuonizer />} />
         </Route>
       </Routes>
     </BrowserRouter>
