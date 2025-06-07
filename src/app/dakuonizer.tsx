@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Pane } from "../pane/Pane";
 
-export function Dakuonizer() {
+export default function Dakuonizer() {
   const [input, setInput] = useState("ああああああああああ\n");
   const [desc, setDesc] = useState(false);
 

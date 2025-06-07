@@ -5,7 +5,7 @@ import {
 } from "../functions";
 import { Pane } from "../pane/Pane";
 
-export function HtmlSpecialCharacterConverter() {
+export default function HtmlSpecialCharacterConverter() {
   const [htmlInput, setHtmlInput] = useState(`<p>Hello, World!</p>`);
   const [nbspEnabled, setNbspEnabled] = useState(false);
   const [inverted, setInverted] = useState(false);

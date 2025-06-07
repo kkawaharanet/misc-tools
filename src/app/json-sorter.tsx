@@ -2,7 +2,7 @@ import { useState } from "react";
 import { toSortedJson } from "../functions";
 import { Pane } from "../pane/Pane";
 
-export function JsonSorter() {
+export default function JsonSorter() {
   const [jsonInput, setJsonInput] = useState(`[
   {"type": "number", "value": "0"},
   { "type": "array", "value": [9, 8, 7, 6, 5, 4, 3, 2, 1] },

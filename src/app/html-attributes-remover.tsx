@@ -2,7 +2,7 @@ import { useState } from "react";
 import { removeHtmlAttributes } from "../functions";
 import { Pane } from "../pane/Pane";
 
-export function HtmlAttributesRemover() {
+export default function HtmlAttributesRemover() {
   const [htmlInput, setHtmlInput] = useState(
     `<div class="content"><p class="example">Hello, World!</p></div>`
   );

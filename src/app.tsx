@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import "./App.css";
+import "./app.css";
 import { Navigation } from "./navigaion/Navigation";
 import { NavigationItem } from "./navigaion/navigation-item";
 
@@ -16,6 +16,7 @@ export default function App() {
     { to: "./csv-to-markdown-table", text: "CSV to Markdown Table" },
     { to: "./password-generator", text: "Password Generator" },
     { to: "./dakuonizer", text: "Dakuonizer" },
+    { to: "./uuid-generator", text: "UUID Generator" },
   ];
 
   return (

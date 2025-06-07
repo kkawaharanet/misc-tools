@@ -1,17 +1,18 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router";
-import App from "./App.tsx";
+import App from "./app.tsx";
+import Blank from "./app/blank.tsx";
+import CsvToMarkdownTable from "./app/csv-to-markdown-table.tsx";
+import Dakuonizer from "./app/dakuonizer.tsx";
+import HtmlAttributesRemover from "./app/html-attributes-remover.tsx";
+import HtmlRemover from "./app/html-remover.tsx";
+import HtmlSpecialCharacterConverter from "./app/html-special-character-converter.tsx";
+import JsonSorter from "./app/json-sorter.tsx";
+import PasswordGenerator from "./app/password-generator.tsx";
+import Sorter from "./app/sorter.tsx";
+import UuidGenerator from "./app/uuid-generator.tsx";
 import "./main.css";
-import { Blank } from "./routes/Blank.tsx";
-import { CsvToMarkdownTable } from "./routes/CsvToMarkdownTable.tsx";
-import { Dakuonizer } from "./routes/Dakuonizer.tsx";
-import { HtmlAttributesRemover } from "./routes/HtmlAttributesRemover.tsx";
-import { HtmlRemover } from "./routes/HtmlRemover.tsx";
-import { HtmlSpecialCharacterConverter } from "./routes/HtmlSpecialCharacterConverter.tsx";
-import { JsonSorter } from "./routes/JsonSorter.tsx";
-import { PasswordGenerator } from "./routes/PasswordGenerator.tsx";
-import { Sorter } from "./routes/Sorter.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -36,6 +37,7 @@ createRoot(document.getElementById("root")!).render(
             element={<HtmlAttributesRemover />}
           />
           <Route path="dakuonizer" element={<Dakuonizer />} />
+          <Route path="uuid-generator" element={<UuidGenerator />} />
         </Route>
       </Routes>
     </BrowserRouter>
