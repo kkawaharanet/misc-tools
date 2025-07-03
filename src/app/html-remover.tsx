@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { Pane } from "../components/pane/Pane";
 import { removeHtml } from "../functions";
-import { Pane } from "../pane/Pane";
 
 export default function HtmlRemover() {
   const [htmlInput, setHtmlInput] = useState(`<p>Hello, World!</p>`);

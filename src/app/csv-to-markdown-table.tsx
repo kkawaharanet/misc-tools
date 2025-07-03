@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { Pane } from "../components/pane/Pane";
 import { csvToMarkdownTable } from "../functions";
-import { Pane } from "../pane/Pane";
 
 export default function CsvToMarkdownTable() {
   const [input, setInput] = useState(`名前,説明\nAAA,BBB\nCCC,DDD`);

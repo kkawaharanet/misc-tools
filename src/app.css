@@ -54,3 +54,9 @@
   right: 0;
   top: 0;
 }
+
+.home {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}

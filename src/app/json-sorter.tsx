@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { Pane } from "../components/pane/Pane";
 import { toSortedJson } from "../functions";
-import { Pane } from "../pane/Pane";
 
 export default function JsonSorter() {
   const [jsonInput, setJsonInput] = useState(`[

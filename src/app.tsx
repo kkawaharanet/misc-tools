@@ -1,10 +1,11 @@
 import { Outlet } from "react-router";
 import "./app.css";
-import { Navigation } from "./navigaion/Navigation";
-import { NavigationItem } from "./navigaion/navigation-item";
+import { Navigation } from "./components/navigaion/Navigation";
+import { NavigationItem } from "./components/navigaion/navigation-item";
 
 export default function App() {
   const navigationItems: NavigationItem[] = [
+    { to: "./reverser", text: "Reverser" },
     { to: "./sorter", text: "Sorter" },
     { to: "./json-sorter", text: "JSON Sorter" },
     { to: "./html-attributes-remover", text: "HTML Attributes Remover" },
@@ -28,6 +29,9 @@ export default function App() {
         <Outlet />
       </div>
       <div className="version">{import.meta.env.VERSION}</div>
+      <div className="home">
+        <a href="https://kkawahara.net">kkawahara.net</a>
+      </div>
     </>
   );
 }

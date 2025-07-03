@@ -1,9 +1,9 @@
 import { useState } from "react";
+import { Pane } from "../components/pane/Pane";
 import {
   CHARACTOR_TO_REFERENCE,
   transformHtmlNamedCharacterReferences,
 } from "../functions";
-import { Pane } from "../pane/Pane";
 
 export default function HtmlSpecialCharacterConverter() {
   const [htmlInput, setHtmlInput] = useState(`<p>Hello, World!</p>`);

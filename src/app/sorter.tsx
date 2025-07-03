@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Pane } from "../pane/Pane";
+import { Pane } from "../components/pane/Pane";
 
 export default function Sorter() {
   const [textInput, setTextInput] = useState("bbb\nccc\naaa\n");

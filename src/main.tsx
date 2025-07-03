@@ -10,6 +10,7 @@ import HtmlRemover from "./app/html-remover.tsx";
 import HtmlSpecialCharacterConverter from "./app/html-special-character-converter.tsx";
 import JsonSorter from "./app/json-sorter.tsx";
 import PasswordGenerator from "./app/password-generator.tsx";
+import Reverser from "./app/reverser.tsx";
 import Sorter from "./app/sorter.tsx";
 import UuidGenerator from "./app/uuid-generator.tsx";
 import "./main.css";
@@ -20,6 +21,7 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route element={<App />}>
           <Route path="/" element={<Blank />} />
+          <Route path="reverser" element={<Reverser />} />
           <Route path="sorter" element={<Sorter />} />
           <Route path="json-sorter" element={<JsonSorter />} />
           <Route
