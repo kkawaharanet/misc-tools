@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Pane } from "../components/pane/Pane";
 
-export default function HtmlRemover() {
+export default function Reverser() {
   const [input, setInput] = useState(`aaa\nbbb\nccc`);
 
   const output = input.split("\n").toReversed().join("\n");
