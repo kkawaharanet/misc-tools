@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import App from "./app";
+import Blank from "./app/blank";
 import CsvToMarkdownTable from "./app/csv-to-markdown-table";
 import Dakuonizer from "./app/dakuonizer";
 import HtmlRemover from "./app/html-remover";
@@ -8,6 +8,7 @@ import JsonSorter from "./app/json-sorter";
 import PasswordGenerator from "./app/password-generator";
 import Reverser from "./app/reverser";
 import SlashConverter from "./app/slash-converter";
+import Sorter from "./app/sorter";
 import SpaceTrimmer from "./app/space-trimmer";
 import UuidGenerator from "./app/uuid-generator";
 
@@ -20,7 +21,7 @@ export interface AppRoute {
 export const appRoutes: AppRoute[] = [
   {
     path: "/",
-    element: <App />,
+    element: <Blank />,
     name: "Index",
   },
   {
@@ -29,7 +30,12 @@ export const appRoutes: AppRoute[] = [
     name: "Reverser",
   },
   {
-    path: "/Sorter",
+    path: "/sorter",
+    element: <Sorter />,
+    name: "Sorter",
+  },
+  {
+    path: "/json-sorter",
     element: <JsonSorter />,
     name: "JSON Sorter",
   },
