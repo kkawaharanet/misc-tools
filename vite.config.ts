@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     chunkSizeWarningLimit: 1000 * 1000,
   },
-  base: "/software/misc-tools",
+  base: "/development/misc-tools",
   plugins: [react()],
   define: {
     "import.meta.env.VERSION": JSON.stringify(version),
