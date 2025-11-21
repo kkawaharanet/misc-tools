@@ -2,7 +2,7 @@
 
 misc-tools はクライアントサイドで動くツール群である。
 
-[使う](https://dist.kkawahara.net/software/misc-tools/)
+[使う](https://dist.kkawahara.net/development/misc-tools/)
 
 ## 実行
 
