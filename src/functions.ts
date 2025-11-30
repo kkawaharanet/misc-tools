@@ -157,3 +157,33 @@ export function removeHtmlAttributes(html: string): string {
   });
   return div.innerHTML;
 }
+
+function filePathToArray(filePath: string) {
+  return filePath.split("/").flatMap((f) => f.split("\\"));
+}
+
+export function getFileName(filePath: string) {
+  return filePathToArray(filePath).slice(-1)[0];
+}
+
+export function getFileExtension(filePath: string) {
+  const fileName = getFileName(filePath);
+  if (!fileName.includes(".")) {
+    return "";
+  }
+  return fileName.split(".")[1];
+}
+
+export function getFileNameWithoutExtension(filePath: string) {
+  const fileName = getFileName(filePath);
+  if (!fileName.includes(".")) {
+    return fileName;
+  }
+  return fileName.split(".")[0];
+}
+
+export function getDirectoryName(filePath: string, windows?: boolean) {
+  return filePathToArray(filePath)
+    .slice(0, -1)
+    .join(!!windows ? "\\" : "/");
+}

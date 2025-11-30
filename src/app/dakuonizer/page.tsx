@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Pane } from "../components/pane/Pane";
+import { Page } from "../../components/page/Page";
+import { Pane } from "../../components/pane/Pane";
 
 export default function Dakuonizer() {
   const [input, setInput] = useState("ああああああああああ\n");
@@ -71,29 +72,26 @@ export default function Dakuonizer() {
   })();
 
   return (
-    <Pane
-      header={
-        <>
-          <h1>Dakuonizer</h1>
-          <p>このツールはテキストを濁音だらけにする。</p>
-        </>
-      }
-      input={input}
-      output={output}
-      onChange={(input) => setInput(input)}
-      params={
-        <div>
-          <input
-            type="checkbox"
-            id="checkboxDesc"
-            defaultChecked={desc}
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-              setDesc(event.target.checked)
-            }
-          />
-          <label htmlFor="checkboxDesc">降順にする</label>
-        </div>
-      }
-    />
+    <Page title="Dakuonizer">
+      <Pane
+        header={<p>このツールはテキストを濁音だらけにする。</p>}
+        input={input}
+        output={output}
+        onChange={(input) => setInput(input)}
+        params={
+          <div>
+            <input
+              type="checkbox"
+              id="checkboxDesc"
+              defaultChecked={desc}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setDesc(event.target.checked)
+              }
+            />
+            <label htmlFor="checkboxDesc">降順にする</label>
+          </div>
+        }
+      />
+    </Page>
   );
 }

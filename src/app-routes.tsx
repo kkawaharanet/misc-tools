@@ -1,16 +1,17 @@
 import { JSX } from "react";
-import Blank from "./app/blank";
-import CsvToMarkdownTable from "./app/csv-to-markdown-table";
-import Dakuonizer from "./app/dakuonizer";
-import HtmlRemover from "./app/html-remover";
-import HtmlSpecialCharacterConverter from "./app/html-special-character-converter";
-import JsonSorter from "./app/json-sorter";
-import PasswordGenerator from "./app/password-generator";
-import Reverser from "./app/reverser";
-import SlashConverter from "./app/slash-converter";
-import Sorter from "./app/sorter";
-import SpaceTrimmer from "./app/space-trimmer";
-import UuidGenerator from "./app/uuid-generator";
+import Blank from "./app/blank/page";
+import CsvToMarkdownTable from "./app/csv-to-markdown-table/page";
+import Dakuonizer from "./app/dakuonizer/page";
+import HtmlRemover from "./app/html-remover/page";
+import HtmlSpecialCharacterConverter from "./app/html-special-character-converter/html-special-character-converter";
+import JsonSorter from "./app/json-sorter/page";
+import PasswordGenerator from "./app/password-generator/page";
+import Reverser from "./app/reverser/page";
+import SlashConverter from "./app/slash-converter/page";
+import Sorter from "./app/sorter/page";
+import SpaceTrimmer from "./app/space-trimmer/page";
+import SvgToPng from "./app/svg-to-png/page";
+import UuidGenerator from "./app/uuid-generator/page";
 
 export interface AppRoute {
   path: string;
@@ -83,5 +84,10 @@ export const appRoutes: AppRoute[] = [
     path: "/space-trimmer",
     element: <SpaceTrimmer />,
     name: "Space Trimmer",
+  },
+  {
+    path: "/svg-to-png",
+    element: <SvgToPng />,
+    name: "SVG to PNG",
   },
 ];

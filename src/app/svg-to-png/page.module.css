@@ -1,0 +1,10 @@
+.dropzone {
+  border: 1px dashed var(--color-border);
+  margin: 8px;
+  padding: 16px;
+  border-radius: 4px;
+}
+
+.dragover {
+  background-color: var(--color-selected);
+}

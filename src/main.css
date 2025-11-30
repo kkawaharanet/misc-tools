@@ -1,14 +1,26 @@
 :root {
-  --width-sidebar: 200px;
-  --screen-width-tablet: 768px;
-  --screen-width-phone: 480px;
+  --width-sidebar: 300px;
+  --color-selected: #f0f0f0;
   --color-border: #7f7f7f;
+  --color-inactive-tab: #f0f0f0;
+  --color-foreground: #404040;
+  --color-background: #ffffff;
 }
 
 html,
 body,
 #root {
   height: 100%;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+textarea,
+input {
+  color: var(--color-foreground);
 }
 
 * {

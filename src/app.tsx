@@ -12,9 +12,11 @@ export default function App() {
       <div className="content">
         <Outlet />
       </div>
-      <div className="version">{import.meta.env.VERSION}</div>
       <div className="home">
-        <a href="https://kkawahara.net">kkawahara.net</a>
+        <p>{import.meta.env.VERSION}</p>
+        <p>
+          <a href="https://kkawahara.net">kkawahara.net</a>
+        </p>
       </div>
     </>
   );

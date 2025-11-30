@@ -1,10 +1,3 @@
-:root {
-  --color-border: #7f7f7f;
-  --color-inactive-tab: #f0f0f0;
-  --color-foreground: #000000;
-  --color-background: #ffffff;
-}
-
 .content {
   margin-left: var(--width-sidebar);
   height: 100%;
@@ -47,12 +40,6 @@
   .sidebar__ul {
     flex-direction: column;
   }
-}
-
-.version {
-  position: fixed;
-  right: 0;
-  top: 0;
 }
 
 .home {
