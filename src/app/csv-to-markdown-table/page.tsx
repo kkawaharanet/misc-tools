@@ -5,7 +5,7 @@ import { csvToMarkdownTable } from "../../functions";
 
 export default function CsvToMarkdownTable() {
   const [input, setInput] = useState(`名前,説明\nAAA,BBB\nCCC,DDD`);
-  const [tsvEnabled, setTsvEnabled] = useState(true);
+  const [tsvEnabled, setTsvEnabled] = useState(false);
 
   const output = csvToMarkdownTable(input, tsvEnabled);
 

@@ -1,7 +1,7 @@
 {
   "name": "misc-tools",
   "private": true,
-  "version": "1.5.0",
+  "version": "1.6.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -29,7 +29,7 @@
     "stylelint-config-recess-order": "^7.4.0",
     "stylelint-config-standard-scss": "^16.0.0",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.52.0",
+    "typescript-eslint": "^8.53.0",
     "vite": "^7.3.1"
   }
 }

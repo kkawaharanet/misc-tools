@@ -1,4 +1,5 @@
 import { JSX } from "react";
+import Base64Converter from "./app/base64-converter/page";
 import Blank from "./app/blank/page";
 import CsvToMarkdownTable from "./app/csv-to-markdown-table/page";
 import Dakuonizer from "./app/dakuonizer/page";
@@ -24,6 +25,11 @@ export const appRoutes: AppRoute[] = [
     path: "/",
     element: <Blank />,
     name: "Index",
+  },
+  {
+    path: "/base64-converter",
+    element: <Base64Converter />,
+    name: "Base64 Converter",
   },
   {
     path: "/reverser",

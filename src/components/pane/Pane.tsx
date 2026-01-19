@@ -1,4 +1,5 @@
 import React from "react";
+import { TextArea } from "../textarea/TextArea";
 import styles from "./Pane.module.css";
 
 export function Pane(props: {
@@ -10,9 +11,9 @@ export function Pane(props: {
 }) {
   return (
     <div className={styles.container}>
-      {props.header}
+      <div className={styles.header}>{props.header}</div>
       <div className={styles.content}>
-        <textarea
+        <TextArea
           onFocus={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
             event.target.select()
           }
@@ -20,14 +21,12 @@ export function Pane(props: {
             props.onChange(event.target.value)
           }
           defaultValue={props.input}
-          className={styles.textarea}
         />
-        <textarea
+        <TextArea
           value={props.output}
           onFocus={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
             event.target.select()
           }
-          className={styles.textarea}
           readOnly
         />
       </div>

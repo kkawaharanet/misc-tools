@@ -4,30 +4,29 @@
   --color-border: #7f7f7f;
   --color-inactive-tab: #f0f0f0;
   --color-foreground: #404040;
-  --color-background: #ffffff;
+  --color-foreground-aside: #7f7f7f;
+  --color-background: #fff;
+  --color-background-sidebar: #f6f6f6;
+  --border-width-normal: 1px;
+  --border-radius-normal: 4px;
 }
 
-html,
-body,
-#root {
+html {
   height: 100%;
 }
 
 body {
-  background-color: var(--color-background);
+  height: 100%;
   color: var(--color-foreground);
+  background-color: var(--color-background);
 }
 
-textarea,
-input {
-  color: var(--color-foreground);
+#root {
+  height: 100%;
 }
 
 * {
-  margin: 0;
+  box-sizing: border-box;
   padding: 0;
-}
-
-ul {
-  list-style-position: inside;
+  margin: 0;
 }

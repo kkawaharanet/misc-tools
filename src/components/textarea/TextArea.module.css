@@ -1,0 +1,14 @@
+.container {
+  padding: 8px;
+  font-family: var(--font-noto-sans-jp), sans-serif;
+  font-size: 100%;
+  color: var(--color-foreground);
+  background-color: var(--color-content-background);
+  border: var(--border-width-normal) solid var(--color-border);
+  border-radius: var(--border-radius-normal);
+  width: 100%;
+
+  &::placeholder {
+    color: var(--color-foreground-aside);
+  }
+}

@@ -14,7 +14,7 @@ export default function HtmlSpecialCharacterConverter() {
   const htmlOutput = transformHtmlNamedCharacterReferences(
     htmlInput,
     nbspEnabled,
-    inverted
+    inverted,
   );
 
   return (
