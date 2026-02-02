@@ -56,9 +56,7 @@ export default function JsonSorter() {
                 type="checkbox"
                 id="checkboxSpaceEnabled"
                 defaultChecked={spaceEnabled}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                  setSpaceEnabled(event.target.checked)
-                }
+                onChange={(event) => setSpaceEnabled(event.currentTarget.checked)}
               />
               <label htmlFor="checkboxSpaceEnabled">スペースを有効にする</label>
             </div>
@@ -67,9 +65,7 @@ export default function JsonSorter() {
                 type="checkbox"
                 id="checkboxSortKey"
                 defaultChecked={sortKey}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                  setSortKey(event.target.checked)
-                }
+                onChange={(event) => setSortKey(event.currentTarget.checked)}
               />
               <label htmlFor="checkboxSortKey">キーをソートする</label>
             </div>
@@ -78,9 +74,7 @@ export default function JsonSorter() {
                 type="checkbox"
                 id="checkboxSortArray"
                 defaultChecked={sortArray}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                  setSortArray(event.target.checked)
-                }
+                onChange={(event) => setSortArray(event.currentTarget.checked)}
               />
               <label htmlFor="checkboxSortArray">配列をソートする</label>
             </div>

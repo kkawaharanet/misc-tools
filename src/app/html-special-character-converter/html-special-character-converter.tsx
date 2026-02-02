@@ -43,9 +43,7 @@ export default function HtmlSpecialCharacterConverter() {
                 type="checkbox"
                 id="checkboxNbspEnabled"
                 defaultChecked={nbspEnabled}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                  setNbspEnabled(event.target.checked)
-                }
+                onChange={(event) => setNbspEnabled(event.currentTarget.checked)}
               />
               <label htmlFor="checkboxNbspEnabled">
                 スペースを<code>&amp;nbsp;</code>に変換する
@@ -56,9 +54,7 @@ export default function HtmlSpecialCharacterConverter() {
                 type="checkbox"
                 id="checkboxInverted"
                 defaultChecked={inverted}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                  setInverted(event.target.checked)
-                }
+                onChange={(event) => setInverted(event.currentTarget.checked)}
               />
               <label htmlFor="checkboxInverted">逆変換する</label>
             </div>

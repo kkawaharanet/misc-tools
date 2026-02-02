@@ -49,7 +49,7 @@ export default function PasswordGenerator() {
               type="checkbox"
               id="checkboxUseZeroNine"
               checked={useZeroNine}
-              onChange={(event) => setUseZeroNine(event.target.checked)}
+              onChange={(event) => setUseZeroNine(event.currentTarget.checked)}
             />
             <label htmlFor="checkboxUseZeroNine">0-9</label>
           </div>
@@ -58,7 +58,7 @@ export default function PasswordGenerator() {
               type="checkbox"
               id="checkboxUseLowerCase"
               checked={useLowerCase}
-              onChange={(event) => setUseLowerCase(event.target.checked)}
+              onChange={(event) => setUseLowerCase(event.currentTarget.checked)}
             />
             <label htmlFor="checkboxUseZeroNine">a-z</label>
           </div>
@@ -67,7 +67,7 @@ export default function PasswordGenerator() {
               type="checkbox"
               id="checkboxUseUpperCase"
               checked={useUpperCase}
-              onChange={(event) => setUseUpperCase(event.target.checked)}
+              onChange={(event) => setUseUpperCase(event.currentTarget.checked)}
             />
             <label htmlFor="checkboxUseUpperCase">A-Z</label>
           </div>
@@ -76,7 +76,7 @@ export default function PasswordGenerator() {
               type="checkbox"
               id="checkboxUseSpecial"
               checked={useSpecial}
-              onChange={(event) => setUseSpecial(event.target.checked)}
+              onChange={(event) => setUseSpecial(event.currentTarget.checked)}
             />
             <label htmlFor="checkboxUseSpecial">記号</label>
           </div>
@@ -89,9 +89,7 @@ export default function PasswordGenerator() {
               max={65536}
               step={1}
               value={length}
-              onInput={(event: React.ChangeEvent<HTMLInputElement>) =>
-                setLength(parseInt(event.target.value))
-              }
+              onInput={(event) => setLength(parseInt(event.currentTarget.value))}
             />
           </div>
         </div>
@@ -108,9 +106,7 @@ export default function PasswordGenerator() {
             <input
               type="text"
               value={output}
-              onFocus={(event: React.ChangeEvent<HTMLInputElement>) =>
-                event.target.select()
-              }
+              onFocus={(event) => event.currentTarget.select()}
               key={output}
               readOnly
             />

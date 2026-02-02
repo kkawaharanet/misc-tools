@@ -35,9 +35,7 @@ export default function Base64Converter() {
                 type="checkbox"
                 id="checkboxInversion"
                 defaultChecked={inversion}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                  setInversion(event.target.checked);
-                }}
+                onChange={(event) => setInversion(event.currentTarget.checked)}
               />
               <label htmlFor="checkboxInversion">逆変換する</label>
             </div>

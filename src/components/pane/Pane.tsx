@@ -14,19 +14,13 @@ export function Pane(props: {
       <div className={styles.header}>{props.header}</div>
       <div className={styles.content}>
         <TextArea
-          onFocus={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
-            event.target.select()
-          }
-          onInput={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
-            props.onChange(event.target.value)
-          }
+          onFocus={(event) => event.currentTarget.select()}
+          onChange={(event) => props.onChange(event.currentTarget.value)}
           defaultValue={props.input}
         />
         <TextArea
           value={props.output}
-          onFocus={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
-            event.target.select()
-          }
+          onFocus={(event) => event.currentTarget.select()}
           readOnly
         />
       </div>

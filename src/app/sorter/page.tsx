@@ -34,9 +34,7 @@ export default function Sorter() {
               type="checkbox"
               id="checkboxDesc"
               defaultChecked={desc}
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                setDesc(event.target.checked)
-              }
+              onChange={(event) => setDesc(event.currentTarget.checked)}
             />
             <label htmlFor="checkboxDesc">降順にする</label>
           </div>

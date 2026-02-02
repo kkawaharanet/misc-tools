@@ -4,7 +4,6 @@ import { Pane } from "../../components/pane/Pane";
 
 export default function Dakuonizer() {
   const [input, setInput] = useState("ああああああああああ\n");
-  const [desc, setDesc] = useState(false);
 
   const output = (() => {
     return input
@@ -78,19 +77,6 @@ export default function Dakuonizer() {
         input={input}
         output={output}
         onChange={(input) => setInput(input)}
-        params={
-          <div>
-            <input
-              type="checkbox"
-              id="checkboxDesc"
-              defaultChecked={desc}
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                setDesc(event.target.checked)
-              }
-            />
-            <label htmlFor="checkboxDesc">降順にする</label>
-          </div>
-        }
       />
     </Page>
   );

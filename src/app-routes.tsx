@@ -2,6 +2,7 @@ import { JSX } from "react";
 import Base64Converter from "./app/base64-converter/page";
 import Blank from "./app/blank/page";
 import Dakuonizer from "./app/dakuonizer/page";
+import HtmlAttributesRemover from "./app/html-attributes-remover/page";
 import HtmlRemover from "./app/html-remover/page";
 import HtmlSpecialCharacterConverter from "./app/html-special-character-converter/html-special-character-converter";
 import JsonSorter from "./app/json-sorter/page";
@@ -68,7 +69,7 @@ export const appRoutes: AppRoute[] = [
   },
   {
     path: "/html-attributes-remover",
-    element: <HtmlRemover />,
+    element: <HtmlAttributesRemover />,
     name: "HTML Attributes Remover",
   },
   {

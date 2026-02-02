@@ -29,8 +29,8 @@ export default function UuidGenerator() {
               max={65536}
               step={1}
               value={count}
-              onInput={(event: React.ChangeEvent<HTMLInputElement>) =>
-                setCount(parseInt(event.target.value))
+              onChange={(event) =>
+                setCount(parseInt(event.currentTarget.value))
               }
             />
           </div>
@@ -44,9 +44,7 @@ export default function UuidGenerator() {
             cols={40}
             rows={20}
             value={outputs.join("\n")}
-            onFocus={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
-              event.target.select()
-            }
+            onFocus={(event) => event.currentTarget.select()}
             readOnly
           />
         </div>
