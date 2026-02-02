@@ -1,7 +1,6 @@
 import { JSX } from "react";
 import Base64Converter from "./app/base64-converter/page";
 import Blank from "./app/blank/page";
-import CsvToMarkdownTable from "./app/csv-to-markdown-table/page";
 import Dakuonizer from "./app/dakuonizer/page";
 import HtmlRemover from "./app/html-remover/page";
 import HtmlSpecialCharacterConverter from "./app/html-special-character-converter/html-special-character-converter";
@@ -12,6 +11,7 @@ import SlashConverter from "./app/slash-converter/page";
 import Sorter from "./app/sorter/page";
 import SpaceTrimmer from "./app/space-trimmer/page";
 import SvgToPng from "./app/svg-to-png/page";
+import TableConverter from "./app/table-converter/page";
 import UuidGenerator from "./app/uuid-generator/page";
 
 export interface AppRoute {
@@ -52,9 +52,9 @@ export const appRoutes: AppRoute[] = [
     name: "HTML Special Character Converter",
   },
   {
-    path: "/csv-to-markdown-table",
-    element: <CsvToMarkdownTable />,
-    name: "CSV to Markdown Table",
+    path: "/table-converter",
+    element: <TableConverter />,
+    name: "Table Converter",
   },
   {
     path: "/password-generator",
