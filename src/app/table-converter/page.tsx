@@ -99,7 +99,7 @@ export default function TableConverter() {
   const [state, setState] = useState<TableConverterState>({
     input: "|名前|説明|\n|--|--|\n|AAA|BBB|\n|CCC|DDD|",
     inputType: "auto",
-    outputType: "html",
+    outputType: "markdown",
   });
   const inputTypeSelectId = useId();
   const outputTypeSelectId = useId();
@@ -131,6 +131,7 @@ export default function TableConverter() {
                   inputType: e.target.value as TableType,
                 }))
               }
+              defaultValue={state.inputType}
             >
               <option value="auto">自動</option>
               <option value="html">HTML</option>
@@ -147,6 +148,7 @@ export default function TableConverter() {
                   outputType: e.target.value as TableType,
                 }))
               }
+              defaultValue={state.outputType}
             >
               <option value="html">HTML</option>
               <option value="csv">CSV</option>

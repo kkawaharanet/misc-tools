@@ -2,12 +2,14 @@ import { JSX } from "react";
 import Base64Converter from "./app/base64-converter/page";
 import Blank from "./app/blank/page";
 import Dakuonizer from "./app/dakuonizer/page";
+import HexConverter from "./app/hex-converter/page";
 import HtmlAttributesRemover from "./app/html-attributes-remover/page";
 import HtmlRemover from "./app/html-remover/page";
 import HtmlSpecialCharacterConverter from "./app/html-special-character-converter/html-special-character-converter";
 import JsonSorter from "./app/json-sorter/page";
 import PasswordGenerator from "./app/password-generator/page";
 import Reverser from "./app/reverser/page";
+import SafelinkRemover from "./app/safelink-remover/page";
 import SlashConverter from "./app/slash-converter/page";
 import Sorter from "./app/sorter/page";
 import SpaceTrimmer from "./app/space-trimmer/page";
@@ -96,5 +98,15 @@ export const appRoutes: AppRoute[] = [
     path: "/svg-to-png",
     element: <SvgToPng />,
     name: "SVG to PNG",
+  },
+  {
+    path: "/safelink-remover",
+    element: <SafelinkRemover />,
+    name: "Safelink Remover",
+  },
+  {
+    path: "/hex-converter",
+    element: <HexConverter />,
+    name: "Hex Converter",
   },
 ];
