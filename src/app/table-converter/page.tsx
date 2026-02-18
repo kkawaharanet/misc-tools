@@ -29,6 +29,7 @@ class Table {
   constructor(public readonly data: string[][]) {}
 
   static createFrom(text: string, type: TableType | "auto") {
+    text = text.trim();
     const detectedType: TableType = (() => {
       if (type === "auto") {
         return detectTableType(text);
