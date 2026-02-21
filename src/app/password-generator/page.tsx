@@ -57,7 +57,7 @@ export default function PasswordGenerator() {
               checked={useLowerCase}
               onChange={(event) => setUseLowerCase(event.currentTarget.checked)}
             />
-            <label htmlFor="checkboxUseZeroNine">a-z</label>
+            <label htmlFor="checkboxUseLowerCase">a-z</label>
           </div>
           <div>
             <input
