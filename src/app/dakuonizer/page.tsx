@@ -1,74 +1,12 @@
 import { useState } from "react";
 import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
+import { dakuonize } from "./function";
 
 export default function Dakuonizer() {
   const [input, setInput] = useState("ああああああああああ\n");
 
-  const output = (() => {
-    return input
-      .split("")
-      .map((c) => {
-        if (
-          [
-            "か",
-            "き",
-            "く",
-            "け",
-            "こ",
-            "さ",
-            "し",
-            "す",
-            "せ",
-            "そ",
-            "た",
-            "ち",
-            "つ",
-            "て",
-            "と",
-            "は",
-            "ひ",
-            "ふ",
-            "へ",
-            "ほ",
-          ].includes(c)
-        ) {
-          return String.fromCharCode(c.charCodeAt(0) + 1);
-        } else if (
-          [
-            "が",
-            "ぎ",
-            "ぐ",
-            "げ",
-            "ご",
-            "ざ",
-            "じ",
-            "ず",
-            "ぜ",
-            "ぞ",
-            "だ",
-            "ぢ",
-            "づ",
-            "で",
-            "ど",
-            "ば",
-            "び",
-            "ぶ",
-            "べ",
-            "ぼ",
-            "ー",
-            "、",
-            "。",
-            "\n",
-            "\t",
-          ].includes(c)
-        ) {
-          return c;
-        }
-        return c + "\u3099";
-      })
-      .join("");
-  })();
+  const output = dakuonize(input);
 
   return (
     <Page title="Dakuonizer">

@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Xorshift } from "../../classes/xorshift";
 import { Page } from "../../components/page/Page";
-import { generatePassword } from "../../functions";
+import { generatePassword } from "./function";
 
 export default function PasswordGenerator() {
   const [useZeroNine, setUseZeroNine] = useState(true);
@@ -18,7 +17,6 @@ export default function PasswordGenerator() {
   );
 
   function handleGenerate() {
-    const xorshift = new Xorshift(Date.now());
     setOutputs(
       Array.from({ length }, () =>
         generatePassword(
@@ -27,9 +25,8 @@ export default function PasswordGenerator() {
           useUpperCase,
           useLowerCase,
           useSpecial,
-          xorshift
-        )
-      )
+        ),
+      ),
     );
   }
 
@@ -89,7 +86,9 @@ export default function PasswordGenerator() {
               max={65536}
               step={1}
               value={length}
-              onInput={(event) => setLength(parseInt(event.currentTarget.value))}
+              onInput={(event) =>
+                setLength(parseInt(event.currentTarget.value))
+              }
             />
           </div>
         </div>

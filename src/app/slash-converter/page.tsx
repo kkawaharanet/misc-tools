@@ -1,27 +1,13 @@
 import { useState } from "react";
 import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
-
-type Mode =
-  | "backSlashToSlash"
-  | "slashToBackSlash"
-  | "doubleBackSlashToSlash"
-  | "doubleSlashToSlash";
+import { convertSlash, ConvertSlashMode } from "./function";
 
 export default function SlashConverter() {
   const [input, setInput] = useState(`C:\\path\\to\\file.txt`);
-  const [mode, setMode] = useState<Mode>("backSlashToSlash");
+  const [mode, setMode] = useState<ConvertSlashMode>("backSlashToSlash");
 
-  const output = (() => {
-    if (mode === "slashToBackSlash") {
-      return input.replaceAll("/", "\\");
-    } else if (mode === "doubleBackSlashToSlash") {
-      return input.replaceAll("\\\\", "/");
-    } else if (mode === "doubleSlashToSlash") {
-      return input.replaceAll("//", "/");
-    }
-    return input.replaceAll("\\", "/");
-  })();
+  const output = convertSlash(input, mode);
 
   return (
     <Page title="Slash Converter">
@@ -33,7 +19,7 @@ export default function SlashConverter() {
         params={
           <div>
             <select
-              onChange={(e) => setMode(e.target.value as Mode)}
+              onChange={(e) => setMode(e.target.value as ConvertSlashMode)}
               defaultValue={mode}
             >
               <option value="backSlashToSlash">"\" → "/"</option>

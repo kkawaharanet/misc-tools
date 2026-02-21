@@ -1,62 +1,7 @@
 import { useId, useState } from "react";
 import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
-
-export type HexType = "hexadecimal" | "decimal" | "ascii";
-
-export interface HexConverterState {
-  input: string;
-  inputType: HexType | "auto";
-  outputType: HexType;
-}
-
-function detectHexType(input: string): HexType {
-  if (/^[0x|0-9|a-f|\s]+$/i.test(input)) {
-    // 0からfもしくは空白・改行で構成されている文字列は16進数
-    return "hexadecimal";
-  }
-  if (/^[0-9|\s]+$/.test(input)) {
-    // 0から9もしくは空白・改行で構成されている文字列は10進数
-    return "decimal";
-  }
-  // それ以外はASCII
-  return "ascii";
-}
-
-class Hex {
-  constructor(public readonly data: number[]) {}
-
-  static createFrom(text: string, type: HexType | "auto") {
-    const detectedType: HexType = (() => {
-      if (type === "auto") {
-        return detectHexType(text);
-      }
-      return type;
-    })();
-
-    if (detectedType === "hexadecimal") {
-      const data = text.split(/\s/).map((d) => parseInt(d, 16));
-
-      return new Hex(data);
-    } else if (detectedType === "decimal") {
-      const data = text.split(/\s/).map((d) => parseInt(d));
-      return new Hex(data);
-    }
-    const data = [...text]
-      .map((d) => d.charCodeAt(0))
-      .filter((d) => !Number.isNaN(d));
-    return new Hex(data);
-  }
-
-  toString(type: HexType) {
-    if (type === "hexadecimal") {
-      return this.data.map((d) => d.toString(16)).join("\n");
-    } else if (type === "decimal") {
-      return this.data.map((d) => d.toString()).join("\n");
-    }
-    return String.fromCharCode(...this.data);
-  }
-}
+import { HexConverterState, hexToString, HexType } from "./function";
 
 export default function HexConverter() {
   const [state, setState] = useState<HexConverterState>({
@@ -69,8 +14,7 @@ export default function HexConverter() {
 
   const output = (() => {
     try {
-      const table = Hex.createFrom(state.input, state.inputType);
-      return table.toString(state.outputType);
+      return hexToString(state.input, state.inputType, state.outputType);
     } catch (error: any) {
       return error.toString();
     }

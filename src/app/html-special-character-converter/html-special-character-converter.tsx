@@ -4,7 +4,7 @@ import { Pane } from "../../components/pane/Pane";
 import {
   CHARACTOR_TO_REFERENCE,
   transformHtmlNamedCharacterReferences,
-} from "../../functions";
+} from "./function";
 
 export default function HtmlSpecialCharacterConverter() {
   const [htmlInput, setHtmlInput] = useState(`<p>Hello, World!</p>`);
@@ -43,7 +43,9 @@ export default function HtmlSpecialCharacterConverter() {
                 type="checkbox"
                 id="checkboxNbspEnabled"
                 defaultChecked={nbspEnabled}
-                onChange={(event) => setNbspEnabled(event.currentTarget.checked)}
+                onChange={(event) =>
+                  setNbspEnabled(event.currentTarget.checked)
+                }
               />
               <label htmlFor="checkboxNbspEnabled">
                 スペースを<code>&amp;nbsp;</code>に変換する

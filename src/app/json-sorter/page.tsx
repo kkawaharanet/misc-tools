@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
-import { toSortedJson } from "../../functions";
+import { toSortedJson } from "./function";
 
 export default function JsonSorter() {
   const [jsonInput, setJsonInput] = useState(`[
@@ -56,7 +56,9 @@ export default function JsonSorter() {
                 type="checkbox"
                 id="checkboxSpaceEnabled"
                 defaultChecked={spaceEnabled}
-                onChange={(event) => setSpaceEnabled(event.currentTarget.checked)}
+                onChange={(event) =>
+                  setSpaceEnabled(event.currentTarget.checked)
+                }
               />
               <label htmlFor="checkboxSpaceEnabled">スペースを有効にする</label>
             </div>

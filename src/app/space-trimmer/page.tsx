@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
+import { spaceTrimmed } from "./function";
 
 export default function SpaceTrimmer() {
   const [input, setInput] = useState(`    a b c    \n    d e f    `);
 
-  const output = input
-    .split("\n")
-    .map((i) => i.trim())
-    .join("\n");
+  const output = spaceTrimmed(input);
 
   return (
     <Page title="Space Trimmer">

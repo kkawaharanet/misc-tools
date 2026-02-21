@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
-import { removeHtmlAttributes } from "../../functions";
+import { removeHtmlAttributes } from "./function";
 
 export default function HtmlAttributesRemover() {
   const [htmlInput, setHtmlInput] = useState(
-    `<div class="content"><p class="example">Hello, World!</p></div>`
+    `<div class="content"><p class="example">Hello, World!</p></div>`,
   );
 
   const output = removeHtmlAttributes(htmlInput);

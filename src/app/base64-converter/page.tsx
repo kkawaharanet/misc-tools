@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
+import { convertBase64 } from "./function";
 
 export default function Base64Converter() {
   const [input, setInput] = useState("こんにちは");
@@ -8,10 +9,7 @@ export default function Base64Converter() {
 
   const output = (() => {
     try {
-      if (inversion) {
-        return decodeURIComponent(atob(input));
-      }
-      return btoa(encodeURIComponent(input));
+      return convertBase64(input, inversion);
     } catch (error: any) {
       return error.toString();
     }

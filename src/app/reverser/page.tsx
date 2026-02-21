@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
+import { toReversed } from "./function";
 
 export default function Reverser() {
   const [input, setInput] = useState(`aaa\nbbb\nccc`);
 
-  const output = input.split("\n").toReversed().join("\n");
+  const output = toReversed(input);
 
   return (
     <Page title="Reverser">
