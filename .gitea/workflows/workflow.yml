@@ -68,7 +68,7 @@ jobs:
           chmod 0400 ~/.ssh/id_rsa
           ssh-keyscan -p22 -H ${{ vars.DEPLOYMENT_HOST }} > ~/.ssh/known_hosts
       - name: Install rsync
-        run: sudo apt install -y rsync
+        run: sudo apt update && sudo apt install -y rsync
       - name: Upload files
         run: |
           rsync -avz --delete dist/ ${{ vars.DEPLOYMENT_USER }}@${{ vars.DEPLOYMENT_HOST }}:${{ vars.DEPLOYMENT_PATH }}
