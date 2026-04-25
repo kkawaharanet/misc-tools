@@ -2,61 +2,41 @@ import { describe, expect, test } from "vitest";
 import { convertPath } from "./function";
 
 describe("convertPath", () => {
-  test("Windowsのディレクトリ", async () => {
-    expect(convertPath("C:\\path\\to\\", "directoryPath")).toBe(
-      "C:\\path\\to\\",
-    );
+  test.each([
+    ["C:\\path\\to\\", "C:\\path\\to\\"],
+    ["/path/to/", "/path/to/"],
+    ["", ""],
+  ])("directoryPath: %s", (input, expected) => {
+    expect(convertPath(input, "directoryPath")).toBe(expected);
   });
 
-  test("Windowsのディレクトリ名", async () => {
-    expect(convertPath("C:\\path\\to\\", "directoryName")).toBe("to");
+  test.each([
+    ["C:\\path\\to\\", "to"],
+    ["/path/to/", "to"],
+  ])("directoryName: %s", (input, expected) => {
+    expect(convertPath(input, "directoryName")).toBe(expected);
   });
 
-  test("Windowsのファイル名", async () => {
-    expect(convertPath("C:\\path\\to\\file.txt", "fileName")).toBe("file.txt");
+  test.each([
+    ["C:\\path\\to\\file.txt", "file.txt"],
+    ["/path/to/file.txt", "file.txt"],
+    ["/path/to/file.tar.gz", "file.tar.gz"],
+  ])("fileName: %s", (input, expected) => {
+    expect(convertPath(input, "fileName")).toBe(expected);
   });
 
-  test("Windowsのファイル名 (拡張子なし)", async () => {
-    expect(
-      convertPath("C:\\path\\to\\file.txt", "fileNameWithoutExtension"),
-    ).toBe("file");
+  test.each([
+    ["C:\\path\\to\\file.txt", "file"],
+    ["/path/to/file.txt", "file"],
+  ])("fileNameWithoutExtension: %s", (input, expected) => {
+    expect(convertPath(input, "fileNameWithoutExtension")).toBe(expected);
   });
 
-  test("Windowsの拡張子", async () => {
-    expect(convertPath("C:\\path\\to\\file.txt", "fileExtension")).toBe(".txt");
-  });
-
-  test("Linuxのディレクトリ", async () => {
-    expect(convertPath("/path/to/", "directoryPath")).toBe("/path/to/");
-  });
-
-  test("Linuxのディレクトリ名", async () => {
-    expect(convertPath("/path/to/", "directoryName")).toBe("to");
-  });
-
-  test("Linuxのファイル名", async () => {
-    expect(convertPath("/path/to/file.txt", "fileName")).toBe("file.txt");
-  });
-
-  test("Linuxのファイル名 (拡張子なし)", async () => {
-    expect(convertPath("/path/to/file.txt", "fileNameWithoutExtension")).toBe(
-      "file",
-    );
-  });
-
-  test("Linuxのファイル名 (拡張子が2つある)", async () => {
-    expect(convertPath("/path/to/file.tar.gz", "fileName")).toBe("file.tar.gz");
-  });
-
-  test("Linuxの拡張子", async () => {
-    expect(convertPath("/path/to/file.txt", "fileExtension")).toBe(".txt");
-  });
-
-  test("Linuxの拡張子 (拡張子が2つある)", async () => {
-    expect(convertPath("/path/to/file.tar.gz", "fileExtension")).toBe(".gz");
-  });
-
-  test("空文字", async () => {
-    expect(convertPath("", "directoryPath")).toBe("");
+  test.each([
+    ["C:\\path\\to\\file.txt", ".txt"],
+    ["/path/to/file.txt", ".txt"],
+    ["/path/to/file.tar.gz", ".gz"],
+  ])("fileExtension: %s", (input, expected) => {
+    expect(convertPath(input, "fileExtension")).toBe(expected);
   });
 });
