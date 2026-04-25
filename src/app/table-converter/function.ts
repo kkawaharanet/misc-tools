@@ -50,7 +50,12 @@ class Table {
       // 3. 1行目は除く
       const data = text
         .split("\n")
-        .map((line) => line.split("|").slice(1, -1))
+        .map((line) =>
+          line
+            .split("|")
+            .slice(1, -1)
+            .map((column) => column.trim()),
+        )
         .filter((_, index) => index !== 1);
       return new Table(data);
     } else if (detectedType === "tsv") {
