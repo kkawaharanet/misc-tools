@@ -1,7 +1,7 @@
 {
   "name": "misc-tools",
   "private": true,
-  "version": "1.12.0",
+  "version": "1.12.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -29,9 +29,9 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.5.0",
-    "stylelint": "^16.26.1",
-    "stylelint-config-recess-order": "^7.6.1",
-    "stylelint-config-standard-scss": "^16.0.0",
+    "stylelint": "^17.9.0",
+    "stylelint-config-recess-order": "^7.7.0",
+    "stylelint-config-standard-scss": "^17.0.0",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.59.0",
     "typescript-plugin-css-modules": "^5.2.0",
