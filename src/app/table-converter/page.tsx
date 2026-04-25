@@ -1,5 +1,5 @@
-import { useId, useState } from "react";
-import { Page } from "../../components/page/Page";
+import { Flex, Select, Text } from "@radix-ui/themes";
+import { useState } from "react";
 import { Pane } from "../../components/pane/Pane";
 import { convertTable, TableConverterState, TableType } from "./function";
 
@@ -9,8 +9,6 @@ export default function TableConverter() {
     inputType: "auto",
     outputType: "markdown",
   });
-  const inputTypeSelectId = useId();
-  const outputTypeSelectId = useId();
 
   const output = (() => {
     try {
@@ -21,50 +19,53 @@ export default function TableConverter() {
   })();
 
   return (
-    <Page title="TableConverter">
+    <>
+      <title>TableConverter</title>
       <Pane
         header={<p>このツールは表の形式を変換する。</p>}
         input={state.input}
         output={output}
         onChange={(input) => setState((state) => ({ ...state, input }))}
         params={
-          <div>
-            <label htmlFor={inputTypeSelectId}>入力の形式</label>
-            <select
-              id={inputTypeSelectId}
-              onChange={(e) =>
-                setState((s) => ({
-                  ...s,
-                  inputType: e.target.value as TableType,
-                }))
+          <Flex gap="3" align="center">
+            <Text as="label" size="2">
+              入力の形式
+            </Text>
+            <Select.Root
+              value={state.inputType}
+              onValueChange={(v) =>
+                setState((s) => ({ ...s, inputType: v as TableType }))
               }
-              defaultValue={state.inputType}
             >
-              <option value="auto">自動</option>
-              <option value="html">HTML</option>
-              <option value="csv">CSV</option>
-              <option value="tsv">TSV</option>
-              <option value="markdown">Markdown</option>
-            </select>
-            <label htmlFor={outputTypeSelectId}>出力の形式</label>
-            <select
-              id={outputTypeSelectId}
-              onChange={(e) =>
-                setState((s) => ({
-                  ...s,
-                  outputType: e.target.value as TableType,
-                }))
+              <Select.Trigger />
+              <Select.Content>
+                <Select.Item value="auto">自動</Select.Item>
+                <Select.Item value="html">HTML</Select.Item>
+                <Select.Item value="csv">CSV</Select.Item>
+                <Select.Item value="tsv">TSV</Select.Item>
+                <Select.Item value="markdown">Markdown</Select.Item>
+              </Select.Content>
+            </Select.Root>
+            <Text as="label" size="2">
+              出力の形式
+            </Text>
+            <Select.Root
+              value={state.outputType}
+              onValueChange={(v) =>
+                setState((s) => ({ ...s, outputType: v as TableType }))
               }
-              defaultValue={state.outputType}
             >
-              <option value="html">HTML</option>
-              <option value="csv">CSV</option>
-              <option value="tsv">TSV</option>
-              <option value="markdown">Markdown</option>
-            </select>
-          </div>
+              <Select.Trigger />
+              <Select.Content>
+                <Select.Item value="html">HTML</Select.Item>
+                <Select.Item value="csv">CSV</Select.Item>
+                <Select.Item value="tsv">TSV</Select.Item>
+                <Select.Item value="markdown">Markdown</Select.Item>
+              </Select.Content>
+            </Select.Root>
+          </Flex>
         }
       />
-    </Page>
+    </>
   );
 }

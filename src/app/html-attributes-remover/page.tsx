@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
 import { removeHtmlAttributes } from "./function";
 
@@ -11,13 +10,14 @@ export default function HtmlAttributesRemover() {
   const output = removeHtmlAttributes(htmlInput);
 
   return (
-    <Page title="HTML Attributes Remover">
+    <>
+      <title>HTML Attributes Remover</title>
       <Pane
         header={<p>このツールはHTMLの属性を削除する。</p>}
         input={htmlInput}
         output={output}
         onChange={(input) => setHtmlInput(input)}
       />
-    </Page>
+    </>
   );
 }

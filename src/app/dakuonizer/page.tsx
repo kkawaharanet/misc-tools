@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
 import { dakuonize } from "./function";
 
@@ -9,13 +8,14 @@ export default function Dakuonizer() {
   const output = dakuonize(input);
 
   return (
-    <Page title="Dakuonizer">
+    <>
+      <title>Dakuonizer</title>
       <Pane
         header={<p>このツールはテキストを濁音だらけにする。</p>}
         input={input}
         output={output}
         onChange={(input) => setInput(input)}
       />
-    </Page>
+    </>
   );
 }

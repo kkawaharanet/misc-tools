@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
 import { spaceTrimmed } from "./function";
 
@@ -9,13 +8,14 @@ export default function SpaceTrimmer() {
   const output = spaceTrimmed(input);
 
   return (
-    <Page title="Space Trimmer">
+    <>
+      <title>Space Trimmer</title>
       <Pane
         header={<p>このツールは先頭と末尾のホワイトスペースを取り除く。</p>}
         input={input}
         output={output}
         onChange={(input) => setInput(input)}
       />
-    </Page>
+    </>
   );
 }

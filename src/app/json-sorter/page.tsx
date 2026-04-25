@@ -1,5 +1,5 @@
+import { Checkbox, Code, Flex, Text } from "@radix-ui/themes";
 import { useState } from "react";
-import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
 import { toSortedJson } from "./function";
 
@@ -35,14 +35,15 @@ export default function JsonSorter() {
   })();
 
   return (
-    <Page title="JSON Sorter">
+    <>
+      <title>JSON Sorter</title>
       <Pane
         header={
           <>
             <p>このツールはJSONをソートする。</p>
             <p>
               仕様として、設定にかかわらず数値のキー(例:{" "}
-              <code>"0": "something"</code>)は並びが変わる。
+              <Code>"0": "something"</Code>)は並びが変わる。
             </p>
           </>
         }
@@ -50,39 +51,39 @@ export default function JsonSorter() {
         output={jsonOutput}
         onChange={(input) => setJsonInput(input)}
         params={
-          <>
-            <div>
-              <input
-                type="checkbox"
-                id="checkboxSpaceEnabled"
-                defaultChecked={spaceEnabled}
-                onChange={(event) =>
-                  setSpaceEnabled(event.currentTarget.checked)
-                }
-              />
-              <label htmlFor="checkboxSpaceEnabled">スペースを有効にする</label>
-            </div>
-            <div>
-              <input
-                type="checkbox"
-                id="checkboxSortKey"
-                defaultChecked={sortKey}
-                onChange={(event) => setSortKey(event.currentTarget.checked)}
-              />
-              <label htmlFor="checkboxSortKey">キーをソートする</label>
-            </div>
-            <div>
-              <input
-                type="checkbox"
-                id="checkboxSortArray"
-                defaultChecked={sortArray}
-                onChange={(event) => setSortArray(event.currentTarget.checked)}
-              />
-              <label htmlFor="checkboxSortArray">配列をソートする</label>
-            </div>
-          </>
+          <Flex direction="column" gap="2">
+            <Text as="label" size="2">
+              <Flex gap="2" align="center">
+                <Checkbox
+                  defaultChecked={spaceEnabled}
+                  onCheckedChange={(checked) =>
+                    setSpaceEnabled(checked === true)
+                  }
+                />
+                スペースを有効にする
+              </Flex>
+            </Text>
+            <Text as="label" size="2">
+              <Flex gap="2" align="center">
+                <Checkbox
+                  defaultChecked={sortKey}
+                  onCheckedChange={(checked) => setSortKey(checked === true)}
+                />
+                キーをソートする
+              </Flex>
+            </Text>
+            <Text as="label" size="2">
+              <Flex gap="2" align="center">
+                <Checkbox
+                  defaultChecked={sortArray}
+                  onCheckedChange={(checked) => setSortArray(checked === true)}
+                />
+                配列をソートする
+              </Flex>
+            </Text>
+          </Flex>
         }
       />
-    </Page>
+    </>
   );
 }

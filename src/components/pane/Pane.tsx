@@ -1,5 +1,5 @@
+import { TextArea } from "@radix-ui/themes";
 import React from "react";
-import { TextArea } from "../textarea/TextArea";
 import styles from "./Pane.module.css";
 
 export function Pane(props: {
@@ -24,7 +24,7 @@ export function Pane(props: {
           readOnly
         />
       </div>
-      {props.params && props.params}
+      {props.params && <div className={styles.params}>{props.params}</div>}
     </div>
   );
 }

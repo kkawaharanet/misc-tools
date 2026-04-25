@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
 import { removeSafelink } from "./function";
 
@@ -15,13 +14,14 @@ export default function SafelinkRemover() {
   })();
 
   return (
-    <Page title="Safelink Remover">
+    <>
+      <title>Safelink Remover</title>
       <Pane
         header={<p>このツールはOutlookのURL置換を元に戻す。</p>}
         input={input}
         output={output}
         onChange={(input) => setInput(input)}
       />
-    </Page>
+    </>
   );
 }

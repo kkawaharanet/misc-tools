@@ -1,5 +1,5 @@
+import { Checkbox, Flex, Text } from "@radix-ui/themes";
 import { useState } from "react";
-import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
 import { textSorted } from "./function";
 
@@ -10,24 +10,25 @@ export default function Sorter() {
   const output = textSorted(input, desc);
 
   return (
-    <Page title="Sorter">
+    <>
+      <title>Sorter</title>
       <Pane
         header={<p>このツールは文字列をソートする。</p>}
         input={input}
         output={output}
         onChange={(input) => setTextInput(input)}
         params={
-          <div>
-            <input
-              type="checkbox"
-              id="checkboxDesc"
-              defaultChecked={desc}
-              onChange={(event) => setDesc(event.currentTarget.checked)}
-            />
-            <label htmlFor="checkboxDesc">降順にする</label>
-          </div>
+          <Text as="label" size="2">
+            <Flex gap="2" align="center">
+              <Checkbox
+                defaultChecked={desc}
+                onCheckedChange={(checked) => setDesc(checked === true)}
+              />
+              降順にする
+            </Flex>
+          </Text>
         }
       />
-    </Page>
+    </>
   );
 }

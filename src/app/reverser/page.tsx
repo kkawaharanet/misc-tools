@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
 import { toReversed } from "./function";
 
@@ -9,13 +8,14 @@ export default function Reverser() {
   const output = toReversed(input);
 
   return (
-    <Page title="Reverser">
+    <>
+      <title>Reverser</title>
       <Pane
         header={<p>このツールは複数行の文字列を逆順にする。</p>}
         input={input}
         output={output}
         onChange={(input) => setInput(input)}
       />
-    </Page>
+    </>
   );
 }

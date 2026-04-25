@@ -1,5 +1,6 @@
+import { Button, Flex, Text, TextArea, TextField } from "@radix-ui/themes";
 import { useState } from "react";
-import { Page } from "../../components/page/Page";
+import styles from "./page.module.css";
 
 export default function UuidGenerator() {
   const [count, setCount] = useState(30);
@@ -14,41 +15,37 @@ export default function UuidGenerator() {
   }
 
   return (
-    <Page title="UUID Generator">
-      <div className="flex-column gap-8">
-        <div>
-          <p>このツールはUUID v4を生成する。</p>
-        </div>
-        <div className="flex-row gap-8">
-          <div>
-            <label htmlFor="numberLength">生成数</label>
-            <input
+    <>
+      <title>UUID Generator</title>
+      <p className={styles.header}>このツールはUUID v4を生成する。</p>
+      <Flex direction="column" gap="3" p="3" height="100%">
+        <Text as="label" size="2">
+          <Flex gap="2" align="center">
+            生成数
+            <TextField.Root
               type="number"
               id="numberLength"
               min={1}
               max={65536}
               step={1}
               value={count}
-              onChange={(event) =>
-                setCount(parseInt(event.currentTarget.value))
-              }
+              onChange={(e) => setCount(parseInt(e.currentTarget.value))}
+              style={{ width: "100px" }}
             />
-          </div>
-        </div>
-        <div className="flex-row gap-8">
-          <button onClick={handleGenerate}>生成する</button>
-          <button onClick={handleCopyAll}>全部コピーする</button>
-        </div>
-        <div className="flex-column gap-8">
-          <textarea
-            cols={40}
-            rows={20}
-            value={outputs.join("\n")}
-            onFocus={(event) => event.currentTarget.select()}
-            readOnly
-          />
-        </div>
-      </div>
-    </Page>
+          </Flex>
+        </Text>
+        <Flex gap="2">
+          <Button onClick={handleGenerate}>生成する</Button>
+          <Button variant="soft" onClick={handleCopyAll}>
+            全部コピーする
+          </Button>
+        </Flex>
+        <TextArea
+          value={outputs.join("\n")}
+          onFocus={(e) => e.currentTarget.select()}
+          readOnly
+        />
+      </Flex>
+    </>
   );
 }

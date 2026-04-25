@@ -1,5 +1,5 @@
+import { Checkbox, Code, Flex, Text } from "@radix-ui/themes";
 import { useState } from "react";
-import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
 import {
   CHARACTOR_TO_REFERENCE,
@@ -18,7 +18,8 @@ export default function HtmlSpecialCharacterConverter() {
   );
 
   return (
-    <Page title="HTML Special Character Converter">
+    <>
+      <title>HTML Special Character Converter</title>
       <Pane
         header={
           <>
@@ -37,32 +38,30 @@ export default function HtmlSpecialCharacterConverter() {
         output={htmlOutput}
         onChange={(input) => setHtmlInput(input)}
         params={
-          <div>
-            <div>
-              <input
-                type="checkbox"
-                id="checkboxNbspEnabled"
-                defaultChecked={nbspEnabled}
-                onChange={(event) =>
-                  setNbspEnabled(event.currentTarget.checked)
-                }
-              />
-              <label htmlFor="checkboxNbspEnabled">
-                スペースを<code>&amp;nbsp;</code>に変換する
-              </label>
-            </div>
-            <div>
-              <input
-                type="checkbox"
-                id="checkboxInverted"
-                defaultChecked={inverted}
-                onChange={(event) => setInverted(event.currentTarget.checked)}
-              />
-              <label htmlFor="checkboxInverted">逆変換する</label>
-            </div>
-          </div>
+          <Flex direction="column" gap="2">
+            <Text as="label" size="2">
+              <Flex gap="2" align="center">
+                <Checkbox
+                  defaultChecked={nbspEnabled}
+                  onCheckedChange={(checked) =>
+                    setNbspEnabled(checked === true)
+                  }
+                />
+                スペースを<Code>&amp;nbsp;</Code>に変換する
+              </Flex>
+            </Text>
+            <Text as="label" size="2">
+              <Flex gap="2" align="center">
+                <Checkbox
+                  defaultChecked={inverted}
+                  onCheckedChange={(checked) => setInverted(checked === true)}
+                />
+                逆変換する
+              </Flex>
+            </Text>
+          </Flex>
         }
       />
-    </Page>
+    </>
   );
 }

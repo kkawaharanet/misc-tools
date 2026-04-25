@@ -1,5 +1,5 @@
+import { Select } from "@radix-ui/themes";
 import { useState } from "react";
-import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
 import { convertSlash, ConvertSlashMode } from "./function";
 
@@ -10,26 +10,30 @@ export default function SlashConverter() {
   const output = convertSlash(input, mode);
 
   return (
-    <Page title="Slash Converter">
+    <>
+      <title>Slash Converter</title>
       <Pane
         header={<p>このツールはスラッシュ記号を変換する。</p>}
         input={input}
         output={output}
         onChange={(input) => setInput(input)}
         params={
-          <div>
-            <select
-              onChange={(e) => setMode(e.target.value as ConvertSlashMode)}
-              defaultValue={mode}
-            >
-              <option value="backSlashToSlash">"\" → "/"</option>
-              <option value="slashToBackSlash">"/" → "\"</option>
-              <option value="doubleBackSlashToSlash">"\\" → "/"</option>
-              <option value="doubleSlashToSlash">"//" → "/"</option>
-            </select>
-          </div>
+          <Select.Root
+            value={mode}
+            onValueChange={(v) => setMode(v as ConvertSlashMode)}
+          >
+            <Select.Trigger />
+            <Select.Content>
+              <Select.Item value="backSlashToSlash">"\" → "/"</Select.Item>
+              <Select.Item value="slashToBackSlash">"/" → "\"</Select.Item>
+              <Select.Item value="doubleBackSlashToSlash">
+                "\\" → "/"
+              </Select.Item>
+              <Select.Item value="doubleSlashToSlash">"//" → "/"</Select.Item>
+            </Select.Content>
+          </Select.Root>
         }
       />
-    </Page>
+    </>
   );
 }

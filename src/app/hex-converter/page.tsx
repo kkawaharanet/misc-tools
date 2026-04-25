@@ -1,5 +1,5 @@
-import { useId, useState } from "react";
-import { Page } from "../../components/page/Page";
+import { Flex, Select, Text } from "@radix-ui/themes";
+import { useState } from "react";
 import { Pane } from "../../components/pane/Pane";
 import { HexConverterState, hexToString, HexType } from "./function";
 
@@ -9,8 +9,6 @@ export default function HexConverter() {
     inputType: "auto",
     outputType: "ascii",
   });
-  const inputTypeSelectId = useId();
-  const outputTypeSelectId = useId();
 
   const output = (() => {
     try {
@@ -21,48 +19,51 @@ export default function HexConverter() {
   })();
 
   return (
-    <Page title="HexConverter">
+    <>
+      <title>HexConverter</title>
       <Pane
         header={<p>このツールは16進数の値を変換する。</p>}
         input={state.input}
         output={output}
         onChange={(input) => setState((state) => ({ ...state, input }))}
         params={
-          <div>
-            <label htmlFor={inputTypeSelectId}>入力の形式</label>
-            <select
-              id={inputTypeSelectId}
-              onChange={(e) =>
-                setState((s) => ({
-                  ...s,
-                  inputType: e.target.value as HexType,
-                }))
+          <Flex gap="3" align="center">
+            <Text as="label" size="2">
+              入力の形式
+            </Text>
+            <Select.Root
+              value={state.inputType}
+              onValueChange={(v) =>
+                setState((s) => ({ ...s, inputType: v as HexType }))
               }
-              defaultValue={state.inputType}
             >
-              <option value="auto">自動</option>
-              <option value="hexadecimal">16進数</option>
-              <option value="decimal">10進数</option>
-              <option value="ascii">ASCII</option>
-            </select>
-            <label htmlFor={outputTypeSelectId}>出力の形式</label>
-            <select
-              id={outputTypeSelectId}
-              onChange={(e) =>
-                setState((s) => ({
-                  ...s,
-                  outputType: e.target.value as HexType,
-                }))
+              <Select.Trigger />
+              <Select.Content>
+                <Select.Item value="auto">自動</Select.Item>
+                <Select.Item value="hexadecimal">16進数</Select.Item>
+                <Select.Item value="decimal">10進数</Select.Item>
+                <Select.Item value="ascii">ASCII</Select.Item>
+              </Select.Content>
+            </Select.Root>
+            <Text as="label" size="2">
+              出力の形式
+            </Text>
+            <Select.Root
+              value={state.outputType}
+              onValueChange={(v) =>
+                setState((s) => ({ ...s, outputType: v as HexType }))
               }
-              defaultValue={state.outputType}
             >
-              <option value="hexadecimal">16進数</option>
-              <option value="decimal">10進数</option>
-              <option value="ascii">ASCII</option>
-            </select>
-          </div>
+              <Select.Trigger />
+              <Select.Content>
+                <Select.Item value="hexadecimal">16進数</Select.Item>
+                <Select.Item value="decimal">10進数</Select.Item>
+                <Select.Item value="ascii">ASCII</Select.Item>
+              </Select.Content>
+            </Select.Root>
+          </Flex>
         }
       />
-    </Page>
+    </>
   );
 }

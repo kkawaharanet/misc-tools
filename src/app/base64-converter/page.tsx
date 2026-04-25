@@ -1,5 +1,5 @@
+import { Checkbox, Flex, Text } from "@radix-ui/themes";
 import { useState } from "react";
-import { Page } from "../../components/page/Page";
 import { Pane } from "../../components/pane/Pane";
 import { convertBase64 } from "./function";
 
@@ -16,30 +16,25 @@ export default function Base64Converter() {
   })();
 
   return (
-    <Page title="JSON Sorter">
+    <>
+      <title>Base64 Converter</title>
       <Pane
-        header={
-          <>
-            <p>このツールはBase64をエンコード/デコードする。</p>
-          </>
-        }
+        header={<p>このツールはBase64をエンコード/デコードする。</p>}
         input={input}
         output={output}
         onChange={(input) => setInput(input)}
         params={
-          <>
-            <div>
-              <input
-                type="checkbox"
-                id="checkboxInversion"
+          <Text as="label" size="2">
+            <Flex gap="2" align="center">
+              <Checkbox
                 defaultChecked={inversion}
-                onChange={(event) => setInversion(event.currentTarget.checked)}
+                onCheckedChange={(checked) => setInversion(checked === true)}
               />
-              <label htmlFor="checkboxInversion">逆変換する</label>
-            </div>
-          </>
+              逆変換する
+            </Flex>
+          </Text>
         }
       />
-    </Page>
+    </>
   );
 }

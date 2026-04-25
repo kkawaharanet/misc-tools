@@ -1,14 +1,12 @@
 :root {
   --width-sidebar: 300px;
-  --color-selected: #f0f0f0;
-  --color-border: #7f7f7f;
-  --color-inactive-tab: #f0f0f0;
-  --color-foreground: #404040;
-  --color-foreground-aside: #7f7f7f;
-  --color-background: #fff;
-  --color-background-sidebar: #f6f6f6;
-  --border-width-normal: 1px;
-  --border-radius-normal: 4px;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.radix-themes {
+  height: 100%;
+
+  --default-font-family: "Noto Sans JP", sans-serif;
 }
 
 html {
@@ -17,8 +15,6 @@ html {
 
 body {
   height: 100%;
-  color: var(--color-foreground);
-  background-color: var(--color-background);
 }
 
 #root {
