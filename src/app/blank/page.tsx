@@ -10,9 +10,10 @@ export default function Blank() {
         align="center"
         justify="center"
         height="100%"
-        gap="2"
+        gap="3"
+        p="3"
       >
-        <Text>misc-tools {version}</Text>
+        <Text size="8">misc-tools {version}</Text>
         <Link href="https://kkawahara.net">kkawahara.net</Link>
       </Flex>
     </>

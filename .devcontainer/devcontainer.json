@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "misc-tools",
   "build": {
     "dockerfile": "Dockerfile"
   },
