@@ -8,6 +8,7 @@ import HtmlRemover from "./app/html-remover/page";
 import HtmlSpecialCharacterConverter from "./app/html-special-character-converter/html-special-character-converter";
 import JsonSorter from "./app/json-sorter/page";
 import PasswordGenerator from "./app/password-generator/page";
+import Path from "./app/path/page";
 import Reverser from "./app/reverser/page";
 import SafelinkRemover from "./app/safelink-remover/page";
 import SlashConverter from "./app/slash-converter/page";
@@ -88,6 +89,11 @@ export const appRoutes: AppRoute[] = [
     path: "/slash-converter",
     element: <SlashConverter />,
     name: "Slash Converter",
+  },
+  {
+    path: "/path",
+    element: <Path />,
+    name: "Path",
   },
   {
     path: "/space-trimmer",
