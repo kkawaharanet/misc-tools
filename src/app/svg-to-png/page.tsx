@@ -1,7 +1,7 @@
 import { DragEvent, useRef, useState } from "react";
 import { Page } from "../../components/page/Page";
+import { Svg } from "./function";
 import styles from "./page.module.css";
-import { Svg } from "./svg";
 
 export default function SvgToPng() {
   const dropzoneRef = useRef<HTMLDivElement>(null);

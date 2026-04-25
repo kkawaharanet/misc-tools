@@ -5,7 +5,7 @@ import Dakuonizer from "./app/dakuonizer/page";
 import HexConverter from "./app/hex-converter/page";
 import HtmlAttributesRemover from "./app/html-attributes-remover/page";
 import HtmlRemover from "./app/html-remover/page";
-import HtmlSpecialCharacterConverter from "./app/html-special-character-converter/html-special-character-converter";
+import HtmlSpecialCharacterConverter from "./app/html-special-character-converter/page";
 import JsonSorter from "./app/json-sorter/page";
 import PasswordGenerator from "./app/password-generator/page";
 import Path from "./app/path/page";
