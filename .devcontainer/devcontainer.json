@@ -1,0 +1,29 @@
+{
+  "name": "web",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  // コンテナ内で docker compose を使えるようにする
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "forwardPorts": [5173],
+  "postCreateCommand": "npm ci && claude --version",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "anthropic.claude-code",
+        "saoudrizwan.claude-dev",
+        "stylelint.vscode-stylelint"
+      ]
+    }
+  },
+  "mounts": [
+    "source=${localEnv:HOME}/.claude,target=/home/node/.claude,type=bind,consistency=cached"
+  ],
+  "remoteUser": "node",
+  "runArgs": ["--add-host=host.docker.internal:host-gateway"]
+}
