@@ -24,7 +24,13 @@ export default defineConfig({
         display: "standalone",
         background_color: "#ffffff",
         theme_color: "#4285F4",
-        icons: [{ src: "/icon.svg", sizes: "any", type: "image/svg+xml" }],
+        icons: [
+          {
+            src: "/development/misc-tools/icon.svg",
+            sizes: "any",
+            type: "image/svg+xml",
+          },
+        ],
       },
       workbox: {
         runtimeCaching: [
