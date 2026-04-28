@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     chunkSizeWarningLimit: 1000 * 1000,
   },
-  base: "/development/misc-tools",
+  base: "/development/misc-tools/",
   server: {
     host: true,
   },
