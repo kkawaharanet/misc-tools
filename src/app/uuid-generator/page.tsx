@@ -1,8 +1,10 @@
 import { Button, Flex, Text, TextArea, TextField } from "@radix-ui/themes";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import styles from "./page.module.css";
 
 export default function UuidGenerator() {
+  const { t } = useTranslation();
   const [count, setCount] = useState(30);
   const [outputs, setOutputs] = useState<string[]>([]);
 
@@ -16,12 +18,12 @@ export default function UuidGenerator() {
 
   return (
     <>
-      <title>UUID Generator</title>
-      <p className={styles.header}>このツールはUUID v4を生成する。</p>
+      <title>{t("uuidGenerator")}</title>
+      <p className={styles.header}>{t("uuidGeneratorDescription")}</p>
       <Flex direction="column" gap="3" p="3" height="100%">
         <Text as="label" size="2">
           <Flex gap="2" align="center">
-            生成数
+            {t("numberOfGeneration")}
             <TextField.Root
               type="number"
               id="numberLength"
@@ -35,9 +37,9 @@ export default function UuidGenerator() {
           </Flex>
         </Text>
         <Flex gap="2">
-          <Button onClick={handleGenerate}>生成する</Button>
+          <Button onClick={handleGenerate}>{t("generate")}</Button>
           <Button variant="soft" onClick={handleCopyAll}>
-            全部コピーする
+            {t("copyAll")}
           </Button>
         </Flex>
         <TextArea

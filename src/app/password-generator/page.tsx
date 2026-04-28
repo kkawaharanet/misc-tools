@@ -1,9 +1,11 @@
 import { Button, Checkbox, Flex, Text, TextField } from "@radix-ui/themes";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { generatePassword } from "./function";
 import styles from "./page.module.css";
 
 export default function PasswordGenerator() {
+  const { t } = useTranslation();
   const [useZeroNine, setUseZeroNine] = useState(true);
   const [useLowerCase, setUseLowerCase] = useState(true);
   const [useUpperCase, setUseUpperCase] = useState(true);
@@ -37,8 +39,8 @@ export default function PasswordGenerator() {
 
   return (
     <>
-      <title>Password Generator</title>
-      <p className={styles.header}>このツールはパスワードを生成する。</p>
+      <title>{t("passwordGenerator")}</title>
+      <p className={styles.header}>{t("passwordGeneratorDescription")}</p>
       <Flex direction="column" gap="3" p="3">
         <Flex gap="4" wrap="wrap" align="center">
           <Text as="label" size="2">
@@ -47,7 +49,7 @@ export default function PasswordGenerator() {
                 checked={useZeroNine}
                 onCheckedChange={(checked) => setUseZeroNine(checked === true)}
               />
-              0-9
+              {t("zeroToNine")}
             </Flex>
           </Text>
           <Text as="label" size="2">
@@ -56,7 +58,7 @@ export default function PasswordGenerator() {
                 checked={useLowerCase}
                 onCheckedChange={(checked) => setUseLowerCase(checked === true)}
               />
-              a-z
+              {t("aToZ")}
             </Flex>
           </Text>
           <Text as="label" size="2">
@@ -65,7 +67,7 @@ export default function PasswordGenerator() {
                 checked={useUpperCase}
                 onCheckedChange={(checked) => setUseUpperCase(checked === true)}
               />
-              A-Z
+              {t("largeAToZ")}
             </Flex>
           </Text>
           <Text as="label" size="2">
@@ -74,12 +76,12 @@ export default function PasswordGenerator() {
                 checked={useSpecial}
                 onCheckedChange={(checked) => setUseSpecial(checked === true)}
               />
-              記号
+              {t("specialCharacter")}
             </Flex>
           </Text>
           <Text as="label" size="2">
             <Flex gap="2" align="center">
-              長さ
+              {t("length")}
               <TextField.Root
                 type="number"
                 min={1}
@@ -94,14 +96,14 @@ export default function PasswordGenerator() {
         </Flex>
         <Flex gap="2">
           <Button onClick={handleGenerate} disabled={isGenerateButtonDisabled}>
-            生成する
+            {t("generate")}
           </Button>
           <Button
             variant="soft"
             onClick={handleCopyAll}
             disabled={isGenerateButtonDisabled}
           >
-            全部コピーする
+            {t("copyAll")}
           </Button>
         </Flex>
         <Flex direction="column" gap="2">

@@ -1,11 +1,13 @@
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
-import { IconButton } from "@radix-ui/themes";
+import { IconButton, Text } from "@radix-ui/themes";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Outlet } from "react-router";
 import styles from "./App.module.css";
 import { Sidebar } from "./components/sidebar/Sidebar";
 
 export function App() {
+  const { t } = useTranslation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -19,10 +21,11 @@ export function App() {
           <IconButton
             variant="ghost"
             onClick={() => setSidebarOpen(true)}
-            aria-label="メニューを開く"
+            aria-label={t("openMenu")}
           >
             <HamburgerMenuIcon width="20" height="20" />
           </IconButton>
+          <Text size="2">{t("miscTools")}</Text>
         </header>
         <div className={styles.content}>
           <Outlet />

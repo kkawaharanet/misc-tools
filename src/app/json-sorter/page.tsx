@@ -1,9 +1,11 @@
-import { Checkbox, Code, Flex, Text } from "@radix-ui/themes";
+import { Checkbox, Flex, Text } from "@radix-ui/themes";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Pane } from "../../components/pane/Pane";
 import { toSortedJson } from "./function";
 
 export default function JsonSorter() {
+  const { t } = useTranslation();
   const [jsonInput, setJsonInput] = useState(`[
   {"type": "number", "value": "0"},
   { "type": "array", "value": [9, 8, 7, 6, 5, 4, 3, 2, 1] },
@@ -36,17 +38,9 @@ export default function JsonSorter() {
 
   return (
     <>
-      <title>JSON Sorter</title>
+      <title>{t("jsonSorter")}</title>
       <Pane
-        header={
-          <>
-            <p>このツールはJSONをソートする。</p>
-            <p>
-              仕様として、設定にかかわらず数値のキー(例:{" "}
-              <Code>"0": "something"</Code>)は並びが変わる。
-            </p>
-          </>
-        }
+        header={<p>{t("jsonSorterDescription")}</p>}
         input={jsonInput}
         output={jsonOutput}
         onChange={(input) => setJsonInput(input)}
@@ -60,7 +54,7 @@ export default function JsonSorter() {
                     setSpaceEnabled(checked === true)
                   }
                 />
-                スペースを有効にする
+                {t("enableSpace")}
               </Flex>
             </Text>
             <Text as="label" size="2">
@@ -69,7 +63,7 @@ export default function JsonSorter() {
                   defaultChecked={sortKey}
                   onCheckedChange={(checked) => setSortKey(checked === true)}
                 />
-                キーをソートする
+                {t("sortKey")}
               </Flex>
             </Text>
             <Text as="label" size="2">
@@ -78,7 +72,7 @@ export default function JsonSorter() {
                   defaultChecked={sortArray}
                   onCheckedChange={(checked) => setSortArray(checked === true)}
                 />
-                配列をソートする
+                {t("sortArray")}
               </Flex>
             </Text>
           </Flex>

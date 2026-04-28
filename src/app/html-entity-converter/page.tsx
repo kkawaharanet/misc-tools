@@ -1,12 +1,11 @@
-import { Checkbox, Code, Flex, Text } from "@radix-ui/themes";
+import { Checkbox, Flex, Text } from "@radix-ui/themes";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Pane } from "../../components/pane/Pane";
-import {
-  CHARACTOR_TO_REFERENCE,
-  transformHtmlNamedCharacterReferences,
-} from "./function";
+import { transformHtmlNamedCharacterReferences } from "./function";
 
-export default function HtmlSpecialCharacterConverter() {
+export default function HtmlEntityConverter() {
+  const { t } = useTranslation();
   const [htmlInput, setHtmlInput] = useState(`<p>Hello, World!</p>`);
   const [nbspEnabled, setNbspEnabled] = useState(false);
   const [inverted, setInverted] = useState(false);
@@ -19,21 +18,9 @@ export default function HtmlSpecialCharacterConverter() {
 
   return (
     <>
-      <title>HTML Special Character Converter</title>
+      <title>{t("htmlEntityConverter")}</title>
       <Pane
-        header={
-          <>
-            <p>このツールは以下の通り文字列をHTMLの文字実体参照に変換する。</p>
-            <ul>
-              {Object.entries(CHARACTOR_TO_REFERENCE).map(([key, value]) => (
-                <li key={key}>
-                  "{key}" → "{value}"
-                </li>
-              ))}
-            </ul>
-            <p>これ以外の文字列はHTMLの文字実体参照に変換されない。</p>
-          </>
-        }
+        header={<p>{t("htmlEntityConverterDescription")}</p>}
         input={htmlInput}
         output={htmlOutput}
         onChange={(input) => setHtmlInput(input)}
@@ -47,7 +34,7 @@ export default function HtmlSpecialCharacterConverter() {
                     setNbspEnabled(checked === true)
                   }
                 />
-                スペースを<Code>&amp;nbsp;</Code>に変換する
+                {t("convertSpaceToNbsp")}
               </Flex>
             </Text>
             <Text as="label" size="2">
@@ -56,7 +43,7 @@ export default function HtmlSpecialCharacterConverter() {
                   defaultChecked={inverted}
                   onCheckedChange={(checked) => setInverted(checked === true)}
                 />
-                逆変換する
+                {t("convertInversibly")}
               </Flex>
             </Text>
           </Flex>

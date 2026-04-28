@@ -1,9 +1,11 @@
 import { Flex, Link, Text, TextField } from "@radix-ui/themes";
 import { DragEvent, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Svg } from "./function";
 import styles from "./page.module.css";
 
 export default function SvgToPng() {
+  const { t } = useTranslation();
   const dropzoneRef = useRef<HTMLDivElement>(null);
   const [svgs, setSvgs] = useState<Svg[]>([]);
   const [scale, setScale] = useState(1);
@@ -37,10 +39,8 @@ export default function SvgToPng() {
 
   return (
     <>
-      <title>SVG to PNG</title>
-      <p className={styles.header}>
-        このツールはSVGファイルをPNGファイルに変換する。
-      </p>
+      <title>{t("svgToPng")}</title>
+      <p className={styles.header}>{t("svgToPngDescription")}</p>
       <Flex direction="column" gap="3" p="3">
         <div
           onDragOver={handleDragOver}
@@ -49,11 +49,11 @@ export default function SvgToPng() {
           className={styles.dropzone}
           ref={dropzoneRef}
         >
-          Drop SVG files
+          {t("dropSvgFiles")}
         </div>
         <Text as="label" size="2">
           <Flex gap="2" align="center">
-            倍率
+            {t("magnification")}
             <TextField.Root
               type="number"
               min={1}
@@ -63,7 +63,7 @@ export default function SvgToPng() {
             />
           </Flex>
         </Text>
-        {svgs.length >= 1 && <p>画像をクリックするとダウンロードできる。</p>}
+        {svgs.length >= 1 && <p>{t("clickImageToDownload")}</p>}
         <Flex wrap="wrap" gap="3">
           {svgs.map((svg, index) => (
             <Link href={svg.pngUrl} download={svg.name} key={svg.name}>

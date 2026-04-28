@@ -1,10 +1,12 @@
 import { Flex, Link, Text } from "@radix-ui/themes";
+import { useTranslation } from "react-i18next";
 
 export default function Blank() {
-  const version = import.meta.env.VERSION as string;
+  const { t } = useTranslation();
+  const version = import.meta.env.VERSION;
   return (
     <>
-      <title>Blank</title>
+      <title>{t("blank")}</title>
       <Flex
         direction="column"
         align="center"
@@ -13,8 +15,8 @@ export default function Blank() {
         gap="3"
         p="3"
       >
-        <Text size="8">misc-tools {version}</Text>
-        <Link href="https://kkawahara.net">kkawahara.net</Link>
+        <Text size="8">{t("miscToolsVersion", { version })}</Text>
+        <Link href="https://kkawahara.net">{t("kkawaharanet")}</Link>
       </Flex>
     </>
   );

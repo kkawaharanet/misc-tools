@@ -1,9 +1,11 @@
 import { Select } from "@radix-ui/themes";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Pane } from "../../components/pane/Pane";
 import { convertSlash, ConvertSlashMode } from "./function";
 
 export default function SlashConverter() {
+  const { t } = useTranslation();
   const [input, setInput] = useState(`C:\\path\\to\\file.txt`);
   const [mode, setMode] = useState<ConvertSlashMode>("backSlashToSlash");
 
@@ -11,9 +13,9 @@ export default function SlashConverter() {
 
   return (
     <>
-      <title>Slash Converter</title>
+      <title>{t("slashConverter")}</title>
       <Pane
-        header={<p>このツールはスラッシュ記号を変換する。</p>}
+        header={<p>{t("slashConverterDescription")}</p>}
         input={input}
         output={output}
         onChange={(input) => setInput(input)}
@@ -24,12 +26,18 @@ export default function SlashConverter() {
           >
             <Select.Trigger />
             <Select.Content>
-              <Select.Item value="backSlashToSlash">"\" → "/"</Select.Item>
-              <Select.Item value="slashToBackSlash">"/" → "\"</Select.Item>
-              <Select.Item value="doubleBackSlashToSlash">
-                "\\" → "/"
+              <Select.Item value="backSlashToSlash">
+                {t("backSlashToSlash")}
               </Select.Item>
-              <Select.Item value="doubleSlashToSlash">"//" → "/"</Select.Item>
+              <Select.Item value="slashToBackSlash">
+                {t("slashToBackSlash")}
+              </Select.Item>
+              <Select.Item value="doubleBackSlashToSlash">
+                {t("doubleBackSlashToSlash")}
+              </Select.Item>
+              <Select.Item value="doubleSlashToSlash">
+                {t("doubleSlashToSlash")}
+              </Select.Item>
             </Select.Content>
           </Select.Root>
         }

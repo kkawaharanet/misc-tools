@@ -1,9 +1,11 @@
 import { Checkbox, Flex, Text } from "@radix-ui/themes";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Pane } from "../../components/pane/Pane";
 import { textSorted } from "./function";
 
 export default function Sorter() {
+  const { t } = useTranslation();
   const [input, setTextInput] = useState("bbb\nccc\naaa\n");
   const [desc, setDesc] = useState(false);
 
@@ -11,9 +13,9 @@ export default function Sorter() {
 
   return (
     <>
-      <title>Sorter</title>
+      <title>{t("sorter")}</title>
       <Pane
-        header={<p>このツールは文字列をソートする。</p>}
+        header={<p>{t("sorterDescription")}</p>}
         input={input}
         output={output}
         onChange={(input) => setTextInput(input)}
@@ -24,7 +26,7 @@ export default function Sorter() {
                 defaultChecked={desc}
                 onCheckedChange={(checked) => setDesc(checked === true)}
               />
-              降順にする
+              {t("sortDescending")}
             </Flex>
           </Text>
         }

@@ -1,9 +1,11 @@
 import { Flex, Select, Text } from "@radix-ui/themes";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Pane } from "../../components/pane/Pane";
 import { convertTable, TableConverterState, TableType } from "./function";
 
 export default function TableConverter() {
+  const { t } = useTranslation();
   const [state, setState] = useState<TableConverterState>({
     input: "|名前|説明|\n|--|--|\n|AAA|BBB|\n|CCC|DDD|",
     inputType: "auto",
@@ -20,16 +22,16 @@ export default function TableConverter() {
 
   return (
     <>
-      <title>TableConverter</title>
+      <title>{t("tableConverter")}</title>
       <Pane
-        header={<p>このツールは表の形式を変換する。</p>}
+        header={<p>{t("tableConverterDescription")}</p>}
         input={state.input}
         output={output}
         onChange={(input) => setState((state) => ({ ...state, input }))}
         params={
           <Flex gap="3" align="center">
             <Text as="label" size="2">
-              入力の形式
+              {t("inputFormat")}
             </Text>
             <Select.Root
               value={state.inputType}
@@ -39,15 +41,15 @@ export default function TableConverter() {
             >
               <Select.Trigger />
               <Select.Content>
-                <Select.Item value="auto">自動</Select.Item>
-                <Select.Item value="html">HTML</Select.Item>
-                <Select.Item value="csv">CSV</Select.Item>
-                <Select.Item value="tsv">TSV</Select.Item>
-                <Select.Item value="markdown">Markdown</Select.Item>
+                <Select.Item value="auto">{t("auto")}</Select.Item>
+                <Select.Item value="html">{t("html")}</Select.Item>
+                <Select.Item value="csv">{t("csv")}</Select.Item>
+                <Select.Item value="tsv">{t("tsv")}</Select.Item>
+                <Select.Item value="markdown">{t("markdown")}</Select.Item>
               </Select.Content>
             </Select.Root>
             <Text as="label" size="2">
-              出力の形式
+              {t("outputFormat")}
             </Text>
             <Select.Root
               value={state.outputType}
@@ -57,10 +59,10 @@ export default function TableConverter() {
             >
               <Select.Trigger />
               <Select.Content>
-                <Select.Item value="html">HTML</Select.Item>
-                <Select.Item value="csv">CSV</Select.Item>
-                <Select.Item value="tsv">TSV</Select.Item>
-                <Select.Item value="markdown">Markdown</Select.Item>
+                <Select.Item value="html">{t("html")}</Select.Item>
+                <Select.Item value="csv">{t("csv")}</Select.Item>
+                <Select.Item value="tsv">{t("tsv")}</Select.Item>
+                <Select.Item value="markdown">{t("markdown")}</Select.Item>
               </Select.Content>
             </Select.Root>
           </Flex>

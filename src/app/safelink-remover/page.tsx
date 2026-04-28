@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Pane } from "../../components/pane/Pane";
 import { removeSafelink } from "./function";
 
 export default function SafelinkRemover() {
+  const { t } = useTranslation();
   const [input, setInput] = useState("");
 
   const output = (() => {
@@ -15,9 +17,9 @@ export default function SafelinkRemover() {
 
   return (
     <>
-      <title>Safelink Remover</title>
+      <title>{t("safelinkRemover")}</title>
       <Pane
-        header={<p>このツールはOutlookのURL置換を元に戻す。</p>}
+        header={<p>{t("safelinkRemoverDescription")}</p>}
         input={input}
         output={output}
         onChange={(input) => setInput(input)}

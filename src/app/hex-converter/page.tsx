@@ -1,9 +1,11 @@
 import { Flex, Select, Text } from "@radix-ui/themes";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Pane } from "../../components/pane/Pane";
 import { HexConverterState, hexToString, HexType } from "./function";
 
 export default function HexConverter() {
+  const { t } = useTranslation();
   const [state, setState] = useState<HexConverterState>({
     input: "0x48\n0x65\n0x6C\n0x6C\n0x6F",
     inputType: "auto",
@@ -20,16 +22,16 @@ export default function HexConverter() {
 
   return (
     <>
-      <title>HexConverter</title>
+      <title>{t("hexConverter")}</title>
       <Pane
-        header={<p>このツールは16進数の値を変換する。</p>}
+        header={<p>{t("hexConverterDescription")}</p>}
         input={state.input}
         output={output}
         onChange={(input) => setState((state) => ({ ...state, input }))}
         params={
           <Flex gap="3" align="center">
             <Text as="label" size="2">
-              入力の形式
+              {t("inputFormat")}
             </Text>
             <Select.Root
               value={state.inputType}
@@ -39,14 +41,16 @@ export default function HexConverter() {
             >
               <Select.Trigger />
               <Select.Content>
-                <Select.Item value="auto">自動</Select.Item>
-                <Select.Item value="hexadecimal">16進数</Select.Item>
-                <Select.Item value="decimal">10進数</Select.Item>
-                <Select.Item value="ascii">ASCII</Select.Item>
+                <Select.Item value="auto">{t("auto")}</Select.Item>
+                <Select.Item value="hexadecimal">
+                  {t("hexadecimal")}
+                </Select.Item>
+                <Select.Item value="decimal">{t("decimal")}</Select.Item>
+                <Select.Item value="ascii">{t("ascii")}</Select.Item>
               </Select.Content>
             </Select.Root>
             <Text as="label" size="2">
-              出力の形式
+              {t("outputFormat")}
             </Text>
             <Select.Root
               value={state.outputType}
@@ -56,9 +60,11 @@ export default function HexConverter() {
             >
               <Select.Trigger />
               <Select.Content>
-                <Select.Item value="hexadecimal">16進数</Select.Item>
-                <Select.Item value="decimal">10進数</Select.Item>
-                <Select.Item value="ascii">ASCII</Select.Item>
+                <Select.Item value="hexadecimal">
+                  {t("hexadecimal")}
+                </Select.Item>
+                <Select.Item value="decimal">{t("decimal")}</Select.Item>
+                <Select.Item value="ascii">{t("ascii")}</Select.Item>
               </Select.Content>
             </Select.Root>
           </Flex>

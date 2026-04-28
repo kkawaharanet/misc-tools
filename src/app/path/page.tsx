@@ -1,9 +1,11 @@
 import { Select } from "@radix-ui/themes";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Pane } from "../../components/pane/Pane";
 import { convertPath, PathMode } from "./function";
 
 export default function Path() {
+  const { t } = useTranslation();
   const [input, setInput] = useState(
     `C:\\path\\to\\\nC:\\path\\to\\file\nC:\\path\\to\\file.txt\n/path/to/\n/path/to/file\n/path/to/file.txt`,
   );
@@ -16,9 +18,9 @@ export default function Path() {
 
   return (
     <>
-      <title>Path</title>
+      <title>{t("path")}</title>
       <Pane
-        header={<p>このツールはパスから必要なものを抽出する。</p>}
+        header={<p>{t("pathDescription")}</p>}
         input={input}
         output={output}
         onChange={(input) => setInput(input)}
@@ -29,13 +31,19 @@ export default function Path() {
           >
             <Select.Trigger />
             <Select.Content>
-              <Select.Item value="directoryPath">ディレクトリ</Select.Item>
-              <Select.Item value="directoryName">ディレクトリ名</Select.Item>
-              <Select.Item value="fileName">ファイル名</Select.Item>
-              <Select.Item value="fileNameWithoutExtension">
-                ファイル名 (拡張子なし)
+              <Select.Item value="directoryPath">
+                {t("directoryPath")}
               </Select.Item>
-              <Select.Item value="fileExtension">拡張子</Select.Item>
+              <Select.Item value="directoryName">
+                {t("directoryName")}
+              </Select.Item>
+              <Select.Item value="fileName">{t("fileName")}</Select.Item>
+              <Select.Item value="fileNameWithoutExtension">
+                {t("fileNameWithoutExtension")}
+              </Select.Item>
+              <Select.Item value="fileExtension">
+                {t("fileExtension")}
+              </Select.Item>
             </Select.Content>
           </Select.Root>
         }
