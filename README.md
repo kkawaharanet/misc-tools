@@ -1,5 +1,7 @@
 # misc-tools
 
+![](./assets/logo.svg)
+
 misc-tools はクライアントサイドで動くツール群である。
 
 [使う](https://dist.kkawahara.net/development/misc-tools/)
