@@ -22,8 +22,6 @@ export default defineConfig({
         start_url: "/development/misc-tools/",
         scope: "/development/misc-tools/",
         display: "standalone",
-        background_color: "#ffffff",
-        theme_color: "#4285F4",
         icons: [
           {
             src: "/development/misc-tools/icon.svg",
@@ -40,6 +38,9 @@ export default defineConfig({
           },
         ],
       },
+      // devOptions: {
+      //   enabled: true,
+      // },
     }),
   ],
   define: {
