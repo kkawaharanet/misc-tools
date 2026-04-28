@@ -16,7 +16,13 @@ export default function Blank() {
         p="3"
       >
         <Text size="8">{t("miscToolsVersion", { version })}</Text>
-        <Link href="https://kkawahara.net">{t("kkawaharanet")}</Link>
+        <Link
+          href="https://kkawahara.net"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {t("kkawaharanet")}
+        </Link>
       </Flex>
     </>
   );
