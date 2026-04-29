@@ -17,10 +17,10 @@ export default function UuidGenerator() {
   }
 
   return (
-    <>
+    <div className={styles.page}>
       <title>{t("uuidGenerator")}</title>
       <p className={styles.header}>{t("uuidGeneratorDescription")}</p>
-      <Flex direction="column" gap="3" p="3" height="100%">
+      <Flex direction="column" gap="3" p="3" style={{ flex: 1, minHeight: 0 }}>
         <Text as="label" size="2">
           <Flex gap="2" align="center">
             {t("numberOfGeneration")}
@@ -46,8 +46,9 @@ export default function UuidGenerator() {
           value={outputs.join("\n")}
           onFocus={(e) => e.currentTarget.select()}
           readOnly
+          style={{ flexGrow: 1 }}
         />
       </Flex>
-    </>
+    </div>
   );
 }
