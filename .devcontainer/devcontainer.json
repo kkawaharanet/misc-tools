@@ -6,10 +6,11 @@
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   // コンテナ内で docker compose を使えるようにする
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/rust:1": {}
   },
   "forwardPorts": [5173],
-  "postCreateCommand": "npm ci && claude --version",
+  "postCreateCommand": "npm ci --legacy-peer-deps && claude --version",
   "customizations": {
     "vscode": {
       "extensions": [

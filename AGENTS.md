@@ -1,5 +1,9 @@
 # AGENTS.md
 
+## Development Containers
+
+本リポジトリの開発にはDevelopment Containers(`.devcontainers`)を用いる。
+
 ## 開発用コマンドの一覧
 
 | コマンド            | 説明                     |

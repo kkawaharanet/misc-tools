@@ -9,6 +9,6 @@ misc-tools はクライアントサイドで動くツール群である。
 ## 実行
 
 ```bash
-$ npm ci # npm i --legacy-peer-deps
+$ npm ci --legacy-peer-deps
 $ npm run dev
 ```

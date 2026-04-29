@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:tauri": "tauri dev",
     "build": "tsc -b && vite build",
     "build:dev": "tsc -b && vite build --mode=dev",
     "build:prod": "tsc -b && vite build --mode=prod",
+    "build:tauri": "tauri build",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
@@ -24,6 +26,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@tauri-apps/cli": "^2.10.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",

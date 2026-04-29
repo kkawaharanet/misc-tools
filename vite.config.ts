@@ -30,14 +30,6 @@ export default defineConfig({
           },
         ],
       },
-      workbox: {
-        runtimeCaching: [
-          {
-            urlPattern: /^https:\/\/fonts\.(googleapis|gstatic)\.com\/.*/i,
-            handler: "CacheFirst",
-          },
-        ],
-      },
       // devOptions: {
       //   enabled: true,
       // },
