@@ -16,12 +16,12 @@ const { version } = require("../package.json");
 const zipName = `misc-tools-${version}-windows-x86_64.zip`;
 const zipPath = resolve(root, zipName);
 
-await new Promise((resolve, reject) => {
+await new Promise((done, fail) => {
   const output = createWriteStream(zipPath);
   const archive = archiver("zip", { zlib: { level: 9 } });
 
-  output.on("close", resolve);
-  archive.on("error", reject);
+  output.on("close", done);
+  archive.on("error", fail);
 
   archive.pipe(output);
   archive.file(resolve(root, "src-tauri/target/release/misc-tools.exe"), {
