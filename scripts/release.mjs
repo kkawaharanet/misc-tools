@@ -34,3 +34,10 @@ await new Promise((done, fail) => {
 });
 
 console.log(`Generated: ${zipPath}`);
+
+const tag = `v${version}`;
+execSync(`gh release create ${tag} "${zipPath}" --title "${tag}" --generate-notes`, {
+  cwd: root,
+  stdio: "inherit",
+});
+console.log(`Released: ${tag}`);
