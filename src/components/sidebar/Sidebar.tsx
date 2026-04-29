@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 import { appRoutes } from "../../app-routes";
 import styles from "./Sidebar.module.css";
 
@@ -15,9 +15,15 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
       <ul>
         {appRoutes.map((route) => (
           <li key={route.path}>
-            <Link to={route.path} onClick={onClose}>
+            <NavLink
+              to={route.path}
+              onClick={onClose}
+              className={({ isActive }) =>
+                isActive ? styles.active : undefined
+              }
+            >
               {t(route.key)}
-            </Link>
+            </NavLink>
           </li>
         ))}
       </ul>
