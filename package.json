@@ -9,6 +9,7 @@
     "build": "tsc -b && vite build",
     "build:dev": "tsc -b && vite build --mode=dev",
     "build:prod": "tsc -b && vite build --mode=prod",
+    "prebuild:tauri": "node -e \"const fs=require('fs');const v=require('./package.json').version;const c=fs.readFileSync('src-tauri/Cargo.toml','utf8').replace(/^version = \\\".*\\\"/m,'version = \\\"'+v+'\\\"');fs.writeFileSync('src-tauri/Cargo.toml',c);\"",
     "build:tauri": "tauri build --no-bundle",
     "lint": "eslint .",
     "preview": "vite preview",

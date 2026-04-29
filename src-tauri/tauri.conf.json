@@ -1,7 +1,6 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "misc-tools",
-  "version": "../../package.json",
   "identifier": "net.kkawahara.misc-tools",
   "build": {
     "frontendDist": "../dist",
