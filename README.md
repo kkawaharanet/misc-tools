@@ -2,11 +2,14 @@
 
 ![](./assets/logo.svg)
 
-misc-tools はクライアントサイドで動くツール群である。
+misc-toolsはツール群である。
 
-[使う](https://dist.kkawahara.net/development/misc-tools/)
+## 使う
 
-## 実行
+- [Webアプリケーションを使う](https://dist.kkawahara.net/development/misc-tools/)
+- [デスクトップアプリケーションを使う](https://github.com/kkawaharanet/misc-tools/releases)
+
+## 開発する
 
 ```bash
 # 開発サーバーを起動する
