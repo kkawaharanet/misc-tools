@@ -3,6 +3,7 @@ import Base64Converter from "./app/base64-converter/page";
 import Blank from "./app/blank/page";
 import Dakuonizer from "./app/dakuonizer/page";
 import HexConverter from "./app/hex-converter/page";
+import MarkdownHtmlConverter from "./app/markdown-html-converter/page";
 import HtmlAttributesRemover from "./app/html-attributes-remover/page";
 import HtmlEntityConverter from "./app/html-entity-converter/page";
 import HtmlRemover from "./app/html-remover/page";
@@ -117,5 +118,10 @@ export const appRoutes: AppRoute[] = [
     key: "hexConverter",
     path: "/hex-converter",
     element: <HexConverter />,
+  },
+  {
+    key: "markdownHtmlConverter",
+    path: "/markdown-html-converter",
+    element: <MarkdownHtmlConverter />,
   },
 ];

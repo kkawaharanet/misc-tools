@@ -44,6 +44,8 @@
   "length": "長さ",
   "magnification": "拡大率",
   "markdown": "Markdown",
+  "markdownHtmlConverter": "Markdown / HTML Converter",
+  "markdownHtmlConverterDescription": "このツールはMarkdownとHTMLを相互に変換する。",
   "miscTools": "misc-tools",
   "miscToolsVersionBy": "misc-tools {{version}} by ",
   "numberOfGeneration": "生成数",
