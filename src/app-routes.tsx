@@ -2,6 +2,7 @@ import { JSX } from "react";
 import Base64Converter from "./app/base64-converter/page";
 import Blank from "./app/blank/page";
 import Dakuonizer from "./app/dakuonizer/page";
+import FileToPath from "./app/file-to-path/page";
 import HexConverter from "./app/hex-converter/page";
 import HtmlAttributesRemover from "./app/html-attributes-remover/page";
 import HtmlEntityConverter from "./app/html-entity-converter/page";
@@ -143,5 +144,11 @@ export const appRoutes: AppRoute[] = [
     path: "/markdown-html-converter",
     tags: ["HTML", "Markdown"],
     element: <MarkdownHtmlConverter />,
+  },
+  {
+    key: "fileToPath",
+    path: "/file-to-path",
+    tags: ["Path"],
+    element: <FileToPath />,
   },
 ];

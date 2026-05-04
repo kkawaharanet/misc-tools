@@ -1,0 +1,30 @@
+.header {
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--gray-4);
+}
+
+.dropzone {
+  padding: var(--space-8);
+  background-color: var(--gray-3);
+  border-radius: var(--radius-2);
+  text-align: center;
+}
+
+.dragover {
+  background-color: var(--gray-4);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+}
+
+.output {
+  height: 100%;
+}
