@@ -1,4 +1,4 @@
-import { Select } from "@radix-ui/themes";
+import { Flex, Select, Text } from "@radix-ui/themes";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Pane } from "../../components/pane/Pane";
@@ -25,27 +25,32 @@ export default function Path() {
         output={output}
         onChange={(input) => setInput(input)}
         params={
-          <Select.Root
-            value={mode}
-            onValueChange={(v) => setMode(v as PathMode)}
-          >
-            <Select.Trigger />
-            <Select.Content>
-              <Select.Item value="directoryPath">
-                {t("directoryPath")}
-              </Select.Item>
-              <Select.Item value="directoryName">
-                {t("directoryName")}
-              </Select.Item>
-              <Select.Item value="fileName">{t("fileName")}</Select.Item>
-              <Select.Item value="fileNameWithoutExtension">
-                {t("fileNameWithoutExtension")}
-              </Select.Item>
-              <Select.Item value="fileExtension">
-                {t("fileExtension")}
-              </Select.Item>
-            </Select.Content>
-          </Select.Root>
+          <Flex gap="3" align="center">
+            <Text as="label" size="2">
+              {t("outputFormat")}
+            </Text>
+            <Select.Root
+              value={mode}
+              onValueChange={(v) => setMode(v as PathMode)}
+            >
+              <Select.Trigger />
+              <Select.Content>
+                <Select.Item value="directoryPath">
+                  {t("directoryPath")}
+                </Select.Item>
+                <Select.Item value="directoryName">
+                  {t("directoryName")}
+                </Select.Item>
+                <Select.Item value="fileName">{t("fileName")}</Select.Item>
+                <Select.Item value="fileNameWithoutExtension">
+                  {t("fileNameWithoutExtension")}
+                </Select.Item>
+                <Select.Item value="fileExtension">
+                  {t("fileExtension")}
+                </Select.Item>
+              </Select.Content>
+            </Select.Root>
+          </Flex>
         }
       />
     </>

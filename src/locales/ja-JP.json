@@ -59,6 +59,7 @@
   "reverserDescription": "このツールは複数行の文字列を逆順にする。",
   "safelinkRemover": "Safelink Remover",
   "safelinkRemoverDescription": "このツールはOutlookのURL置換を元に戻す。",
+  "search": "検索",
   "slashConverter": "SlashConverter",
   "slashConverterDescription": "このツールはスラッシュ記号を変換する。",
   "slashToBackSlash": "\"/\" → \"\\\"",

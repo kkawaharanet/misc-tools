@@ -1,3 +1,6 @@
+import { Cross2Icon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import { IconButton, TextField } from "@radix-ui/themes";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router";
 import { appRoutes } from "../../app-routes";
@@ -10,10 +13,40 @@ export interface SidebarProps {
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const { t } = useTranslation();
+  const [keyword, setKeyword] = useState("");
+  const lowerKeyword = keyword.toLocaleLowerCase();
+
+  const routes =
+    keyword.length >= 1
+      ? appRoutes.filter(
+          (route) =>
+            t(route.key).toLocaleLowerCase().includes(lowerKeyword) ||
+            route.tags.some((tag) =>
+              tag.toLocaleLowerCase().includes(lowerKeyword),
+            ),
+        )
+      : appRoutes;
+
   return (
     <nav className={`${styles.container} ${isOpen ? styles.open : ""}`}>
+      <TextField.Root
+        placeholder={t("search")}
+        value={keyword}
+        onChange={(e) => setKeyword(e.target.value)}
+      >
+        <TextField.Slot>
+          <MagnifyingGlassIcon />
+        </TextField.Slot>
+        {keyword.length > 0 && (
+          <TextField.Slot side="right">
+            <IconButton size="1" variant="ghost" onClick={() => setKeyword("")}>
+              <Cross2Icon />
+            </IconButton>
+          </TextField.Slot>
+        )}
+      </TextField.Root>
       <ul>
-        {appRoutes.map((route) => (
+        {routes.map((route) => (
           <li key={route.path}>
             <NavLink
               to={route.path}

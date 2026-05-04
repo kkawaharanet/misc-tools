@@ -1,4 +1,4 @@
-import { Select } from "@radix-ui/themes";
+import { Flex, Select, Text } from "@radix-ui/themes";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Pane } from "../../components/pane/Pane";
@@ -20,26 +20,31 @@ export default function SlashConverter() {
         output={output}
         onChange={(input) => setInput(input)}
         params={
-          <Select.Root
-            value={mode}
-            onValueChange={(v) => setMode(v as ConvertSlashMode)}
-          >
-            <Select.Trigger />
-            <Select.Content>
-              <Select.Item value="backSlashToSlash">
-                {t("backSlashToSlash")}
-              </Select.Item>
-              <Select.Item value="slashToBackSlash">
-                {t("slashToBackSlash")}
-              </Select.Item>
-              <Select.Item value="doubleBackSlashToSlash">
-                {t("doubleBackSlashToSlash")}
-              </Select.Item>
-              <Select.Item value="doubleSlashToSlash">
-                {t("doubleSlashToSlash")}
-              </Select.Item>
-            </Select.Content>
-          </Select.Root>
+          <Flex gap="3" align="center">
+            <Text as="label" size="2">
+              {t("outputFormat")}
+            </Text>
+            <Select.Root
+              value={mode}
+              onValueChange={(v) => setMode(v as ConvertSlashMode)}
+            >
+              <Select.Trigger />
+              <Select.Content>
+                <Select.Item value="backSlashToSlash">
+                  {t("backSlashToSlash")}
+                </Select.Item>
+                <Select.Item value="slashToBackSlash">
+                  {t("slashToBackSlash")}
+                </Select.Item>
+                <Select.Item value="doubleBackSlashToSlash">
+                  {t("doubleBackSlashToSlash")}
+                </Select.Item>
+                <Select.Item value="doubleSlashToSlash">
+                  {t("doubleSlashToSlash")}
+                </Select.Item>
+              </Select.Content>
+            </Select.Root>
+          </Flex>
         }
       />
     </>

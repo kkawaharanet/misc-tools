@@ -1,4 +1,8 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-1);
   width: var(--width-sidebar);
   overflow-y: auto;
   background-color: var(--gray-3);
@@ -6,7 +10,6 @@
   ul {
     display: flex;
     flex-direction: column;
-    padding: var(--space-1);
 
     li {
       a {
