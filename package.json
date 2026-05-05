@@ -1,7 +1,7 @@
 {
   "name": "misc-tools",
   "private": true,
-  "version": "1.17.0",
+  "version": "1.19.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -43,6 +43,7 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "generate-license-file": "^4.1.1",
     "globals": "^17.6.0",
+    "jsdom": "^29.1.1",
     "stylelint": "^17.10.0",
     "stylelint-config-recess-order": "^7.7.0",
     "stylelint-config-standard-scss": "^17.0.0",

@@ -9,7 +9,7 @@ export interface TableConverterState {
 function detectTableType(input: string): TableType {
   const parser = new DOMParser();
   const document = parser.parseFromString(input, "text/html");
-  if (document.querySelector("td")) {
+  if (document.querySelector("td, th")) {
     return "html";
   }
   if (input.includes("|")) {
@@ -41,7 +41,7 @@ class Table {
         throw new Error("Failed to parse table");
       }
       const data = Array.from(table.querySelectorAll("tr")).map((tr) => {
-        return Array.from(tr.querySelectorAll("td")).map((td) => td.innerText);
+        return Array.from(tr.querySelectorAll("td, th")).map((cell) => cell.textContent ?? "");
       });
       return new Table(data);
     } else if (detectedType === "markdown") {
