@@ -13,7 +13,7 @@ misc-toolsはツール群である。
 
 ```bash
 # 開発サーバーを起動する
-$ npm i --legacy-peer-deps
+$ npm i
 $ npm run dev
 
 # Webアプリケーションをビルドする

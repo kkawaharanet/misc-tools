@@ -17,9 +17,3 @@
 CICDパイプラインの変更が必要な場合、以下を編集すること。
 
 - `.gitea/workflows/workflow.yml`
-
-## 注意点
-
-現状`vite-plugin-pwa`はVite 8に対応しておらず、互換性を無視してインストールしている。そのため`npm i`を実行するとエラーが発生する。
-
-**`npm i`を実行するときは必ず`--legacy-peer-deps`のオプションを付与すること。**

@@ -130,7 +130,7 @@ export const appRoutes: AppRoute[] = [
   {
     key: "safelinkRemover",
     path: "/safelink-remover",
-    tags: [],
+    tags: ["Outlook"],
     element: <SafelinkRemover />,
   },
   {
