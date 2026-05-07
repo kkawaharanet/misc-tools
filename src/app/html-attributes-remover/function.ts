@@ -1,10 +1,9 @@
 export function removeHtmlAttributes(html: string): string {
-  const div = document.createElement("div");
-  div.innerHTML = html;
-  Array.from(div.querySelectorAll("*")).forEach((element) => {
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  Array.from(doc.body.querySelectorAll("*")).forEach((element) => {
     Array.from(element.attributes).forEach((attribute) => {
       element.removeAttribute(attribute.name);
     });
   });
-  return div.innerHTML;
+  return doc.body.innerHTML;
 }

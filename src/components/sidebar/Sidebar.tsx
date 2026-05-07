@@ -37,13 +37,13 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         <TextField.Slot>
           <MagnifyingGlassIcon />
         </TextField.Slot>
-        {keyword.length > 0 && (
-          <TextField.Slot side="right">
+        <TextField.Slot side="right">
+          {keyword.length > 0 && (
             <IconButton size="1" variant="ghost" onClick={() => setKeyword("")}>
               <Cross2Icon />
             </IconButton>
-          </TextField.Slot>
-        )}
+          )}
+        </TextField.Slot>
       </TextField.Root>
       <ul>
         {routes.map((route) => (

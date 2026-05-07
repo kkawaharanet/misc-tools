@@ -11,7 +11,7 @@ export function getFileExtension(filePath: string) {
   if (!fileName.includes(".")) {
     return "";
   }
-  return fileName.split(".")[1];
+  return fileName.split(".").at(-1)!;
 }
 
 export function getFileNameWithoutExtension(filePath: string) {
