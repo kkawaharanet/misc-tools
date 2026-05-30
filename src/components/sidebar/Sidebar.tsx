@@ -40,7 +40,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           </TextField.Slot>
           {keyword.length > 0 && (
             <TextField.Slot side="right">
-              <IconButton size="1" variant="ghost" onClick={() => setKeyword("")}>
+              <IconButton
+                size="1"
+                variant="ghost"
+                onClick={() => setKeyword("")}
+              >
                 <Cross2Icon />
               </IconButton>
             </TextField.Slot>

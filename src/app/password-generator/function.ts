@@ -18,7 +18,7 @@ export function generatePassword(
   if (useSpecial) {
     c += "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
   }
-  return Array.from({ length }, () =>
-    c.charAt(Math.floor(Math.random() * c.length)),
-  ).join("");
+  const array = new Uint32Array(length);
+  crypto.getRandomValues(array);
+  return Array.from(array, (n) => c.charAt(n % c.length)).join("");
 }
