@@ -1,6 +1,6 @@
 [package]
 name = "misc-tools"
-version = "0.1.0"
+version = "1.20.1"
 description = "misc-tools"
 authors = ["Kazuki Kawahara"]
 license = "MIT"

@@ -29,22 +29,24 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
 
   return (
     <nav className={`${styles.container} ${isOpen ? styles.open : ""}`}>
-      <TextField.Root
-        placeholder={t("search")}
-        value={keyword}
-        onChange={(e) => setKeyword(e.target.value)}
-      >
-        <TextField.Slot>
-          <MagnifyingGlassIcon />
-        </TextField.Slot>
-        {keyword.length > 0 && (
-          <TextField.Slot side="right">
-            <IconButton size="1" variant="ghost" onClick={() => setKeyword("")}>
-              <Cross2Icon />
-            </IconButton>
+      <div className={styles.search}>
+        <TextField.Root
+          placeholder={t("search")}
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+        >
+          <TextField.Slot>
+            <MagnifyingGlassIcon />
           </TextField.Slot>
-        )}
-      </TextField.Root>
+          {keyword.length > 0 && (
+            <TextField.Slot side="right">
+              <IconButton size="1" variant="ghost" onClick={() => setKeyword("")}>
+                <Cross2Icon />
+              </IconButton>
+            </TextField.Slot>
+          )}
+        </TextField.Root>
+      </div>
       <ul>
         {routes.map((route) => (
           <li key={route.path}>

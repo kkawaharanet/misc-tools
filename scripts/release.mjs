@@ -5,7 +5,7 @@ import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
 
 const require = createRequire(import.meta.url);
-const archiver = require("archiver");
+const { ZipArchive } = require("archiver");
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
@@ -18,7 +18,7 @@ const zipPath = resolve(root, zipName);
 
 await new Promise((done, fail) => {
   const output = createWriteStream(zipPath);
-  const archive = archiver("zip", { zlib: { level: 9 } });
+  const archive = new ZipArchive({ zlib: { level: 9 } });
 
   output.on("close", done);
   archive.on("error", fail);

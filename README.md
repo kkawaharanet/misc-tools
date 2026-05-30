@@ -22,3 +22,9 @@ $ npm run build
 # デスクトップアプリケーションをビルドする
 $ npm run build:tauri
 ```
+
+## デスクトップアプリケーションをアップデートする
+
+デスクトップアプリケーションはキャッシュが残っていると前バージョンが起動する。
+
+`%LOCALAPPDATA%`にある`net.kkawahara.misc-tools`のディレクトリを削除する。

@@ -7,6 +7,7 @@ import HexConverter from "./app/hex-converter/page";
 import HtmlAttributesRemover from "./app/html-attributes-remover/page";
 import HtmlEntityConverter from "./app/html-entity-converter/page";
 import HtmlRemover from "./app/html-remover/page";
+import JapaneseCalendarConverter from "./app/japanese-calendar-converter/page";
 import JsonSorter from "./app/json-sorter/page";
 import MarkdownHtmlConverter from "./app/markdown-html-converter/page";
 import PasswordGenerator from "./app/password-generator/page";
@@ -150,5 +151,11 @@ export const appRoutes: AppRoute[] = [
     path: "/file-to-path",
     tags: ["Path"],
     element: <FileToPath />,
+  },
+  {
+    key: "japaneseCalendarConverter",
+    path: "/japanese-calendar-converter",
+    tags: ["和暦", "西暦", "昭和", "平成", "令和"],
+    element: <JapaneseCalendarConverter />,
   },
 ];
