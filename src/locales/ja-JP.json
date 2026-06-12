@@ -86,5 +86,9 @@
   "tsv": "TSV",
   "uuidGenerator": "UUID Generator",
   "uuidGeneratorDescription": "このツールはUUID v4を生成する。",
-  "zeroToNine": "0-9"
+  "zeroToNine": "0-9",
+  "japaneseYearNumber": "年号",
+  "japaneseYear": "年(和暦)",
+  "japaneseCalendar": "和暦",
+  "westernCalender": "西暦"
 }
