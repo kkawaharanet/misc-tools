@@ -38,7 +38,7 @@
   "htmlAttributesRemoverDescription": "このツールはHTMLの属性を削除する。",
   "htmlEntityConverter": "HTML Entity Converter",
   "htmlEntityConverterDescription": "このツールは&amp;&lt;&gt;&quot;&apos;&nbsp;の文字列をHTMLの文字実体参照に変換する。",
-  "htmlRemover": "Html Remover",
+  "htmlRemover": "HTML Remover",
   "htmlRemoverDescription": "このツールはHTMLを削除する。",
   "index": "Index",
   "inputFormat": "入力の形式",
