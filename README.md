@@ -20,7 +20,7 @@ $ npm run dev
 $ npm run build
 
 # デスクトップアプリケーションをビルドする
-$ npm run build:tauri
+$ npm run release
 ```
 
 ## デスクトップアプリケーションをアップデートする

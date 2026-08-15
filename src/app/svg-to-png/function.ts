@@ -61,7 +61,7 @@ export class Svg {
         canvas.height = image.height * scale;
         const ctx = canvas.getContext("2d")!;
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-        const pngUrl = canvas.toDataURL("image/url");
+        const pngUrl = canvas.toDataURL("image/png");
         resolve(
           new Svg(
             getFileNameWithoutExtension(name) + ".png",

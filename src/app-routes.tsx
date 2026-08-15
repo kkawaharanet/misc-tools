@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import Base64Converter from "./app/base64-converter/page";
+import BinaryBase64Converter from "./app/binary-base64-converter/page";
 import Blank from "./app/blank/page";
 import Dakuonizer from "./app/dakuonizer/page";
 import FileToPath from "./app/file-to-path/page";
@@ -19,6 +19,7 @@ import Sorter from "./app/sorter/page";
 import SpaceTrimmer from "./app/space-trimmer/page";
 import SvgToPng from "./app/svg-to-png/page";
 import TableConverter from "./app/table-converter/page";
+import TextBase64Converter from "./app/text-base64-converter/page";
 import UuidGenerator from "./app/uuid-generator/page";
 import type jaJP from "./locales/ja-JP.json";
 
@@ -39,10 +40,16 @@ export const appRoutes: AppRoute[] = [
     element: <Blank />,
   },
   {
-    key: "base64Converter",
-    path: "/base64-converter",
+    key: "textBase64Converter",
+    path: "/text-base64-converter",
     tags: ["Base64"],
-    element: <Base64Converter />,
+    element: <TextBase64Converter />,
+  },
+  {
+    key: "binaryBase64Converter",
+    path: "/binary-base64-converter",
+    tags: ["Base64"],
+    element: <BinaryBase64Converter />,
   },
   {
     key: "reverser",

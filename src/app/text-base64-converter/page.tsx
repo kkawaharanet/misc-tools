@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Pane } from "../../components/pane/Pane";
 import { convertBase64 } from "./function";
 
-export default function Base64Converter() {
+export default function TextBase64Converter() {
   const { t } = useTranslation();
   const [input, setInput] = useState("こんにちは");
   const [inversion, setInversion] = useState(false);
@@ -19,9 +19,9 @@ export default function Base64Converter() {
 
   return (
     <>
-      <title>{t("base64Converter")}</title>
+      <title>{t("textBase64Converter")}</title>
       <Pane
-        header={<p>{t("base64ConverterDescription")}</p>}
+        header={<p>{t("textBase64ConverterDescription")}</p>}
         input={input}
         output={output}
         onChange={(input) => setInput(input)}
