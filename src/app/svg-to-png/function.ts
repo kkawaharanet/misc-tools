@@ -25,7 +25,7 @@ export function getFileNameWithoutExtension(filePath: string) {
 export function getDirectoryName(filePath: string, windows?: boolean) {
   return filePathToArray(filePath)
     .slice(0, -1)
-    .join(!!windows ? "\\" : "/");
+    .join(windows ? "\\" : "/");
 }
 
 export class Svg {
