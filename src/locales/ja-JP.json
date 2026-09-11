@@ -19,6 +19,8 @@
   "dakuonizer": "Dakuonizer",
   "dakuonizerDescription": "このツールはテキストを濁音だらけにする。",
   "decimal": "10進数",
+  "deduplicator": "Deduplicator",
+  "deduplicatorDescription": "このツールは重複を削除する。",
   "directoryName": "ディレクトリ名",
   "directoryPath": "ディレクトリパス",
   "doubleBackSlashToSlash": "\"\\\\\" → \"/\"",

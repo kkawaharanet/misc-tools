@@ -2,6 +2,7 @@ import { JSX } from "react";
 import BinaryBase64Converter from "./app/binary-base64-converter/page";
 import Blank from "./app/blank/page";
 import Dakuonizer from "./app/dakuonizer/page";
+import Deduplicator from "./app/deduplicator/page";
 import FileToPath from "./app/file-to-path/page";
 import HexConverter from "./app/hex-converter/page";
 import HtmlAttributesRemover from "./app/html-attributes-remover/page";
@@ -164,5 +165,11 @@ export const appRoutes: AppRoute[] = [
     path: "/japanese-calendar-converter",
     tags: ["和暦", "西暦", "昭和", "平成", "令和"],
     element: <JapaneseCalendarConverter />,
+  },
+  {
+    key: "deduplicator",
+    path: "/deduplicator",
+    tags: [],
+    element: <Deduplicator />,
   },
 ];
