@@ -21,6 +21,12 @@ $ npm run build
 
 # デスクトップアプリケーションをビルドする
 $ npm run release
+
+# パッケージを更新する
+$ ncu -u
+$ npm i
+$ cd src-tauri/
+$ cargo update
 ```
 
 ## デスクトップアプリケーションをアップデートする
